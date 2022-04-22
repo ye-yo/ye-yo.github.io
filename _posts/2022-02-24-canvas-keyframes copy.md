@@ -5,174 +5,88 @@ tags: TIL
 date: 2022-02-24 12:42:07 +0900
 ---
 
-> 원티드 프리온보딩 프론트엔드 코스를 진행하며 공부한 내용을 정리했습니다.
-> 원티드 프리온보딩 프론트엔드 코스를 진행하며 공부한 내용을 정리했습니다.
+# Canvas
 
-# 0. 들어가며
+- canvas는 엘리먼트를 DOM으로 조작하는 방식으로 작성되기 때문에 엘리먼트 선택시 id를 작성해주는 것이 좋음.
 
-우리가 평소에 create-react-app을 통해 간편하게 개발환경을 구축할 수 있었지만 어떤 과정을 통해 빌드되었는지 놓치는 경우가 많다. 하지만 이를 알고있어야 추후 프로젝트 작업시에 필요한 혹은 필요하지 않은 것들을 구분해나갈 수 있고 보다 깊은 이해를 할 수 있다. 그런 점에서 번들러, 그리고 웹팩에 대해 정리해보려고 한다.
+- canvas의 width, height를 inline으로 설정시 어떤 값이든 px로 인식
+  `ex) width="50vw" => 50px`
+- DOM으로 설정해주면 가능
+  `ex) canvas.width = 50vw;`
 
-# 1. 번들러(Bundler)
+#### Context
 
-> 웹 애플리케이션을 구성하는 모든 자원을 하나의 파일로 묶는 도구!
-
-## 1) 번들러의 등장 배경
-
-- 전역 범위를 갖는 수백 개의 자바스크립트 파일에서 중복 선언의 위험이 존재
-- 수백 개의 자바스크립트 파이로 인한 로딩 속도 저하
-- 수동적인 웹 개발 루틴 작업(ex: 파일, 이미지 압축, css 전처리기 변환 등)
-
-## 2) 번들러의 장점
-
-- 모듈 단위의 코드 작성가능
-- 네트워크 병목현상 완화(최적화)
-- 웹 개발 작업 자동화
-
-# 2. 웹팩(Webpack)
-
-> 자바스크립트 애플리케이션을 위한 정적 모듈 번들러
-
-## 1) 모듈 번들러
-
-> 모듈들을 하나의 파일로 압축하는 도구
-
-### 모듈
-
-> 특정 기능을 갖는 작은 코드 단위. 웹 애플리케이션을 구성하는 특정 기능의 자원을 모두 모듈이라고 부른다.(js, html, cs, images, font 모두 모듈)
-
-이러한 모듈들을 하나의 파일로 압축하는 것이 모듈 번들러이며 아래와 같은 장점이 있다.
-
-- 서버와 여러 번 통신하지 않아도 된다.
-- 로딩 속도가 향상된다.
-- 모듈 단위의 개발 지원
-
-이전 자바스크립트에서 페이지나 기능별로 자바스크립트를 분리하여 관리하던 것은 파일 각각의 의존성 및 코드 간의 순서를 보장하기 어려웠고 이를 해결하기위해 모듈 단위의 개발방식이 등장했으며, 이 모듈들의 관리는 웹팩과 같은 모듈 번들러에서 지원한다.
-
-## 2) transpile
-
-자바스크립트의 계속되는 버전 업데이트로 인해 호환성 문제가 발생할 수 있는데 이를 해결하기 위해 자바스크립트 코드를 하위 버전의 코드로 변환시키는 작업이 필요하며 이를 `transpile` 이라고 한다.
-웹팩은 내부의 `babel`이라는 transpiler를 가지고 있다.
-
-## 3) 웹팩의 핵심 속성
-
-웹팩의 빌드과정을 이해하기 위해서는 몇 가지의 주요 속성에 대해 알고 있어야 한다.
-
-- Entry
-- Output
-- Loader
-- Plugin
-- Mode
-
-### Entry
-
-> 웹펙에서 웹 자원을 변환하기 위해 필요한 최초 진입점이나 자바스크립트 파일 경로이다.
-
-**webpack.config.js**
+> 캔버스에 그래픽 작업을 할 수 있게해주는 여러 속성과 메소드들이 들어있는 객체
 
 ```js
-module.exports = {
-  entry: "./src/index.js",
+const ctx = canvas.getContext("2d");
+```
+
+### 사각형 그리기
+
+#### 색칠된 사각형
+
+색칠 : `fillstyle` > `ctx.fillStyle = 'blue'`
+사각형그리기 : `fillRect` > `ctx.fillRect = (10,10,100,50)`
+
+#### 선으로만 그리기
+
+선 설정
+
+```js
+ctx.lineWidth = 5;
+ctx.strokeStyle = "black";
+```
+
+선 사각형 그리기 : `strokeRect` > `ctx.strokeRect(10,10,100,50)`
+사각형으로 지우기(가운데 영역 지울 때 등) : `clearRect`
+
+```js
+ctx.clearRect(20, 20, 80, 30);
+```
+
+### 캔버스로 클릭이벤트 만들기
+
+캔버스에서의 마우스 좌표 : 화면에서의 마우스 위치 - 화면에서의 캔버스 위치
+
+#### 마우스 위치
+
+`event.clientX` `event.clientY`
+
+#### 화면상 캔버스의 위치
+
+`ctx.canvas.offsetLeft`
+`ctx.canvas.offsetTop`
+혹은 `event.offsetX` `event.offsetY`
+
+#### 클릭한 위치에 사각형 그리기
+
+```js
+canvas.onclick = function (event) {
+  const x = event.clientX - ctx.canvas.offsetLeft;
+  const y = event.clientY - ctx.canvas.offsetTop;
+
+  ctx.fillRect(x - 15, y - 15, 30, 30);
 };
 ```
 
-웹팩은 [엔트리 포인트](https://webpack.kr/concepts/entry-points)가 의존하는 다른 모듈과 라이브러리를 찾아내어 dependency graph를 생성하기 때문에 entry 파일에는 웹 애플리케이션의 전반적인 구조와 내용이 담겨져 있어야 한다.
-기본값은 `./src/index.js`이고 다른 포인트를 지정할 수 있다.
+30,30 크기의 사각형 그리고 클릭한 위치의 정중앙에 위치할 수 있도록 width/2, height/2를 x,y에서 각각 빼준다.
 
-\*dependency graph: 의존성 그래프. 하나의 파일이 다른 파일에 의존 할 때마다 webpack은 이를 의존성으로 취급하며, webpack은 엔트리 포인트에서 시작해 애플리케이션에 필요한 모든 모듈/애셋을 포함하는 디펜던시 그래프를 재귀적으로 작성한다.
+# Keyframes
 
-### Output
+- `animation` : 띄어쓰기로 쭉 나열시 아래의 속성들을 한 번에 지정할 수 있음
+  - `animation-name` : 애니메이션의 중간 상태를 지정하는 이름. @keyframes 블록에 작성
+  - `animation-duration` : 한 싸이클의 애니메이션이 재생될 시간
+  - `animation-delay` : 애니메이션 시작 지연 시간
+  - `animation-direction` : 애니메이션 재생 방향
+  - `animation-iteration-count` : 애니메이션의 반복 횟수
+  - `animation-play-state` : 애니메이션을 재생 상태(멈춤,재생)
+  - `animation-timing-function` : 상태 전환을 어떤 시간간격으로 진행할지
+  - `animation-fill-mode` : 애니메이션이 재생 전 후의 상태 지정
 
-> 번들링 결과물의 위치와 파일명을 지정한다.
+\*animation-fill-mode
 
-```js
-// webpack.config.js
-const path = require("path");
-module.exports = {
-  entry: "./path/to/my/entry/file.js",
-  output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "my-first-webpack.bundle.js",
-  },
-};
-```
-
-filename과 path 옵션을 통해 파일명, 경로를 지정하며, 기본 출력 파일은 `./dist/main.js`, 생성된 기타 파일들은 `./dist` 폴더로 설정된다.
-
-### Loaders
-
-> 웹팩이 js, json 이 외의 다른 유형의 파일을 처리하도록 하거나 그 파일들을 유효한 모듈로 변환하여 사용할 수 있게 한다.
-
-```js
-// webpack.config.js
-module.exports = {
-  module: {
-    rules: [],
-  },
-};
-```
-
-웹팩은 기본적으로 js,json 파일만을 이해하며 로더를 사용하면 이 외의 파일들을 처리하고 모듈로 변환하여 사용할 수 있다.
-
-### Plugins
-
-> 로더는 파일을 해석화고 변환하는 과정에 관여하는 반면, 플러그인은 해당 결과물의 형태를 바꾸는 역할을 한다.
-
-```js
-// webpack.config.js
-module.exports = {
-  plugins: [],
-};
-```
-
-플러그인을 사용하기 위해서는 `require()`을 통해 플러그인을 요청하여 `plugins` 배열에 추가해야 한다.(플러그인의 배열에는 생성자 함수로 생성한 객체 인스턴스만 추가할 수 있다.)
-
-```js
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack"); // 내장 plugin에 접근하는 데 사용
-
-module.exports = {
-  module: {
-    rules: [{ test: /\.txt$/, use: "raw-loader" }],
-  },
-  plugins: [new HtmlWebpackPlugin({ template: "./src/index.html" })],
-};
-```
-
-### Mode
-
-> 웹팩에 내장된 환경별 최적화를 활성화하기 위해 모드를 선택할 수 있다.
-
-기본값은 `production` 이다. `production` 모드에서는 코드 압축 및 최적화 작업 등을 지원한다.
-
-```js
-module.exports = {
-  mode: "production",
-};
-```
-
-## 3. Advanced
-
-### 💡 Source Map 이란?
-
-> 배포용으로 빌드한 파일과 원본 파일을 서로 연결시켜주는 기능.
-> 서버 패포 시에 성능 최적화를 위해 자원들을 압축하는데, 압축해서 배포한 파일에서 에러가 발생했을 때 **압축된 파일의 특정 부분이 원본 소스에서 어떤 부분인지** 소스맵을 통해 확인할 수 있다
-
-웹팩에서 소스 맵을 설정하는 방법은 아래와 같다.
-
-```js
-// webpack.config.js
-module.exports = {
-  devtool: "cheap-eval-source-map",
-};
-```
-
-### 💡 Hot Module Replacement
-
-> 모든 종류의 모듈을 새로고침 할 필요없이 업데이트를 가능하게 하는 설정
-
-## 참고 용어
-
-- 에버그린(Evergreen) 브라우저 : 최신 스펙의 자바스크립트 코드 호환이 가능한 브라우저
-
-> 참고 자료
-> [모듈과 번들러 그리고 webpack](https://velog.io/@sunhwa508/%EB%AA%A8%EB%93%88-%EB%B2%88%EB%93%A4%EB%9F%AC-webpack) > [webpack 공식문서](https://webpack.kr/concepts) > [웹팩 핸드북](https://joshua1988.github.io/webpack-guide/devtools/source-map.html)
+- `none` : 기본 값. 재생중이 아닌 경우 요소의 스타일을 유지
+- `forwards` : 재생중이 아닌 경우 마지막 키프레임 스타일을 유지
+- `backwards` : 재생중이 아닌 경우 첫 번째 키프레임 스타일을 유지
+- `both` : 재생 전에는 첫 번째 키프레임 스타일! 재생 후에는 마지막 키프레임 스타일을 유지
