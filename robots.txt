@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ye-yo.github.io/sitemap.xml
