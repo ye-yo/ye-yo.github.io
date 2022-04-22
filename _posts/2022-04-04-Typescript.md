@@ -62,4 +62,10 @@ const area = obj.width * obj.heigth; //오류가 나지 않고 NaN반환
 정적 타입 분석이 가능하기 때문에 다양한 타입 정보를 활용하여 IDE는 자동 완성 기능 등의 유용한 기능들을 지원한다. 특히 Visual Studio Code와 Typescript는 모두 Microsoft에서 만들었기 때문에 VS Code에서 Typescript 개발이 더욱 용이하다.
 
 > 참고
-> [wishket/테오의 프론트엔드 - TypeScript는 어떻게 공부해야 하나요?](https://yozm.wishket.com/magazine/detail/1376/) > [Typescript handbook](https://www.typescriptlang.org/docs/handbook/intro.html) > [mdn web docs - JavaScript에 대하여](https://developer.mozilla.org/ko/docs/Web/JavaScript/About_JavaScript) > [ts-for-jsdev](https://ahnheejong.gitbook.io/ts-for-jsdev/01-introducing-typescript/intro) > [JavaScript VS TypeScript](https://jaeseokim.dev/Javascript/javascript_vs_typescript/) > [Typescript의 사용목적 및 장점](https://velog.io/@imjkim49/Typescript%EC%9D%98-%EC%82%AC%EC%9A%A9%EB%AA%A9%EC%A0%81-%EB%B0%8F-%EC%9E%A5%EC%A0%90)
+>
+> - [wishket/테오의 프론트엔드 - TypeScript는 어떻게 공부해야 하나요?](https://yozm.wishket.com/magazine/detail/1376/)
+> - [Typescript handbook](https://www.typescriptlang.org/docs/handbook/intro.html)
+> - [mdn web docs - JavaScript에 대하여](https://developer.mozilla.org/ko/docs/Web/JavaScript/About_JavaScript)
+> - [ts-for-jsdev](https://ahnheejong.gitbook.io/ts-for-jsdev/01-introducing-typescript/intro)
+> - [JavaScript VS TypeScript](https://jaeseokim.dev/Javascript/javascript_vs_typescript/)
+> - [Typescript의 사용목적 및 장점](https://velog.io/@imjkim49/Typescript%EC%9D%98-%EC%82%AC%EC%9A%A9%EB%AA%A9%EC%A0%81-%EB%B0%8F-%EC%9E%A5%EC%A0%90)
