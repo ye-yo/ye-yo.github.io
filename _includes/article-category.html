@@ -1,0 +1,40 @@
+
+{%- if include.html != false -%}
+  {%- assign _show_categories = __return -%}
+  {%- if _show_categories and include.article.categories[0] -%}
+    {%- assign _show_categories = true -%}
+  {%- else -%}
+    {%- assign _show_categories = false -%}
+  {%- endif -%}
+
+  {%- assign _paths_category = site.paths.category | default: site.data.variables.default.paths.category -%}
+
+  {%- if _show_categories -%}
+    <div class="article__info clearfix">
+      {%- if _show_categories -%}
+
+        <ul class="left-col menu">
+          {%- assign _category_path = _paths_category | append: '?category=' -%}
+          {%- include snippets/prepend-baseurl.html path=_category_path -%}
+
+          {%- for _category in include.article.categories -%}
+            {%- assign _category_path = __return -%}
+            {%- assign _category_encode = _category | strip | url_encode } -%}
+            <li>
+              <!-- <a class="button button--secondary button--pill button--sm"
+                href="{{ _category_path | append: _category_encode | replace: '//', '/' }}">{{ _category }}</a> -->
+              <h4 class="item__category">{{ _category }}</h4>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+{%- endif -%}
+
+{%- if include.semantic != false -%}
+  {%- if include.article.categories[0] -%}
+    {%- assign _keywords = include.article.categorys | join: ',' %}
+    <meta itemprop="keywords" content="{{ _keywords }}">
+  {%- endif -%}
+{%- endif -%}
