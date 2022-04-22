@@ -55,6 +55,7 @@
           </div>
         {%- endif -%}
         <div class="item__content">
+          {%- include article-category.html article=_article show_pageview=_show_pageview -%}
           <header><a href="{{ _article_url }}"><h2 itemprop="headline" class="item__header">{{ _article.title }}</h2></a></header>
           <div class="item__description">
             {%- if _article.excerpt and include.show_excerpt -%}

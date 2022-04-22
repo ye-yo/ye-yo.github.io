@@ -1,3 +1,35 @@
-/* start custom scss snippet */
+.article__info{
+    margin-top: 4px;
+}
 
-/* end custom scss snippet */
+.button--secondary {
+    @include clickable($text-color-1, $main-color-4);
+}
+
+.modal {
+    background-color: #2b2c30ed;
+}
+
+.search-result__item.active a{
+    border-radius: 6rem;
+}
+
+.navigation__item--active a{
+    font-weight: bold;
+}
+
+.navigation__item--active::after{
+    border-bottom-width: 2px;
+}
+
+.root[data-is-touch="false"] a:hover, .root[data-is-touch="false"] a > .item__header:hover, .root[data-is-touch="false"] a.item__header:hover, .root[data-is-touch="false"] .item__header > a:hover{
+    text-decoration: none;
+}
+
+.item__category{
+    color: $main-color-1;
+}
+
+.item__description > .article__content{
+    color: $text-color-sub;
+}

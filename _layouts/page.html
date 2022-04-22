@@ -203,10 +203,16 @@ layout: base
 
                 {%- if _article_header_type == 'overlay' or page.article_header == false -%}
                   {%- include article-header.html article=page html=false -%}
-                  {%- include article-info.html article=page html=false -%}
+                  {%- if page.hide_profile != true -%}
+                    {%- include article-info.html article=page html=false author=false -%}
+                  {%- else -%}
+                    {%- include article-info.html article=page html=false author=true -%}
+                  {%- endif -%}
                 {%- else -%}
                   {%- include article-header.html article=page -%}
-                  {%- include article-info.html article=page -%}
+                  {%- if page.hide_profile != true -%}
+                      {%- include article-info.html article=page author=true -%}
+                  {%- endif -%}
                 {%- endif -%}
 
                     <div class="js-article-content">{{ content }}</div>
