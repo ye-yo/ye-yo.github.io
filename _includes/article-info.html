@@ -1,4 +1,4 @@
-{%- assign _author = site.data.authors[include.article.author] | default: site.author -%}
+{%- assign _author = site.author -%}
 
 {%- if include.html != false -%}
 
@@ -22,7 +22,11 @@
     {%- assign _show_tags = false -%}
   {%- endif -%}
 
-  {%- assign _show_author = include.article.author -%}
+  {%- if include.author == true -%}
+    {%- assign _show_author = true -%}
+  {%- else -%}
+    {%- assign _show_author = false -%}
+  {%- endif -%}
 
   {%- include snippets/assign.html target=site.data.variables.default.page.pageview
     source0=layout.pageview source1=page.pageview -%}
@@ -63,7 +67,8 @@
           {%- if _show_date -%}
             <li>
               {%- include snippets/get-locale-string.html key='ARTICLE_DATE_FORMAT' -%}
-              <i class="far fa-calendar-alt"></i> <span>{{ include.article.date | date: __return }}</span>
+              <!-- <i class="far fa-calendar-alt"></i>  -->
+              <span>{{ include.article.date | date: __return }}</span>
             </li>
           {%- endif -%}
 
