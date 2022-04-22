@@ -6,7 +6,7 @@
 
     {%- assign _post_count = site.posts | size -%}
     {%- assign _page_count = paginator.total_pages -%}
-    <p>{{ _locale_statistics | replace: '[POST_COUNT]', _post_count | replace: '[PAGE_COUNT]', _page_count }}</p>
+    <p class="page-count">{{ _locale_statistics | replace: '[POST_COUNT]', _post_count | replace: '[PAGE_COUNT]', _page_count }}</p>
     <div class="pagination__menu">
       <ul class="menu menu--nowrap">
         {%- assign _max_show = 5 -%}

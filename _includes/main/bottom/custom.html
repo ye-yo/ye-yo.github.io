@@ -1,3 +1,5 @@
 <!-- start custom main bottom snippet -->
-
+{%- if page.hide_related != true -%}
+    {%- include related-posts.html -%}
+{%- endif -%}
 <!-- end custom main bottom snippet -->
