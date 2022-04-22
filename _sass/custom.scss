@@ -33,3 +33,16 @@
 .item__description > .article__content{
     color: $text-color-sub;
 }
+
+.article__header--cover{
+    max-height: 400px;
+    object-fit: cover;
+}
+
+.article__header--cover.top{
+    object-position: top;
+}
+
+.article__header--cover.bottom{
+    object-position: bottom;
+}
