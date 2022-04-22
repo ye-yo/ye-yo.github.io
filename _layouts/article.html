@@ -2,7 +2,6 @@
 layout: page
 type: article
 ---
-
 {%- include snippets/assign.html
   target = site.data.variables.default.page.sharing
   source0=layout.sharing source1=page.sharing -%}
@@ -20,6 +19,7 @@ type: article
   <div class="d-print-none">
     {%- include article-footer.html -%}
     {%- include article-section-navigator.html -%}
+    {%- include related-posts.html -%}
   </div>
 
 </div>
