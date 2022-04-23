@@ -4,7 +4,7 @@ categories: Toy
 tags: [React, thumbnail maker, 썸네일 메이커, 토이프로젝트]
 mode: immersive
 header:
-  theme: dark
+  theme: light
 article_header:
   type: cover
   image:
