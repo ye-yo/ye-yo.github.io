@@ -108,5 +108,7 @@ debounce 내의 함수는 콜백함수 형태로 내부에서 this 바인딩을 
 debounce와 throttle을 직접 구현할 수도 있지만 **lodash**를 사용하여 메소드를 사용하는 방법도 있다.
 [lodash](https://lodash.com/)는 성능이 보장된 다양한 메소드들을 제공하는 라이브러리이다.
 
-> 참고
-> [Debounce, Throttling](https://zereight.tistory.com/828) > [디바운스(Debounce)와 스로틀(Throttle ) 그리고 차이점](https://webclub.tistory.com/607) > [클로저](https://poiemaweb.com/js-closure)
+> 참고  
+> [Debounce, Throttling](https://zereight.tistory.com/828)   
+> [디바운스(Debounce)와 스로틀(Throttle ) 그리고 차이점](https://webclub.tistory.com/607)  
+> [클로저](https://poiemaweb.com/js-closure)

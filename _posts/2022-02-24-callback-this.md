@@ -172,5 +172,5 @@ function func1(a, b, c) {
 }
 ```
 
-> 참고
+> 참고  
 > [코어 자바스크립트 | 3. this](https://intrepidgeeks.com/tutorial/core-javascript-3-this)

@@ -120,6 +120,6 @@ type Window = {
 
 `type`과 `interface` 중 어떤 것을 사용해도 문제가 없으나 **확장성** 면에서 `interface`를 쓰는 것이 좋고, 공식문서에서도 어떤 것을 사용할지 모르겠다면 일단 `interface`를 사용하고 필요한 경우에만 `type`을 사용하라고 제안한다. 나 역시 되도록이면 `interface`를 사용하고 있고 객체가 아닌 데이터에 타입을 지정하고 싶은 경우에는 예외적으로 `type`을 사용하고 있다.
 
-📖 참고 자료
-[typescript docs 핸드북](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#interfaces)
+📖 참고 자료  
+[typescript docs 핸드북](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#interfaces)    
 [타입스크립트 type과 interface의 공통점과 차이점](https://yceffort.kr/2021/03/typescript-interface-vs-type)

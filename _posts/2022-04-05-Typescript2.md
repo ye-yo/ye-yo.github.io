@@ -128,7 +128,7 @@ root.render(
 );
 ```
 
-📖 참고 자료
-[react 문서 링크](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis)
-[Typescript 핸드북](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator)
+📖 참고 자료  
+[react 문서 링크](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis)   
+[Typescript 핸드북](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator)  
 [Typescript-eslint 문서](https://github.com/typescript-eslint/typescript-eslint/blob/v2.34.0/packages/eslint-plugin/docs/rules/no-non-null-assertion.md)

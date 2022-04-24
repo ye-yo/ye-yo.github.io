@@ -304,7 +304,7 @@ const Button = styled.button`
 
 또한 ThemeProvider에 wrapping되지 않는 Button 컴포넌트가 있을 수 있으니 이 때에는 `defaultProps`를 정의해주면 된다.
 
-````js
+```js
 ...
 Button.defaultProps = {
   theme: {
@@ -322,7 +322,7 @@ Button.defaultProps = {
   </div>
 ```
 
-#### theme props에 함수 전달
+### theme props에 함수 전달
 
 테마 props에 함수를 전달하는 것도 가능하다.
 
@@ -356,4 +356,4 @@ render(
 상위의 테마의 스타일을 참조해야되지만 상위 테마와 다르게 적용해야 할 때 함수를 사용하면 유용할 것 같다.
 
 > 참고자료 - [styled-components 공식문서](https://styled-components.com/docs/basics)
-````
+
