@@ -125,3 +125,42 @@ code{
     background-color: $main-color-4;
     color: $text-color-3;
 }
+
+.search-result{
+    font-size: 1.2rem;
+
+    > ul > li{
+        margin-bottom: 1rem;
+        padding: 6px;
+        > a{
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+}
+
+.search--dark .search-result__item.active a, .search--dark .search-result__item.active a:link, .search--dark .search-result__item.active a:visited{
+    position: relative;
+    color:white;
+    background-color: unset;
+}
+
+.search--dark .search-result__item a::after{
+    content: '';
+    display: block;
+    width: 0;
+    height: 5px;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+    background: rgba(200, 125, 220, .6);
+}
+
+.root[data-is-touch="false"] .search--dark .search-result__item a:hover{
+    color: white;
+    background-color: unset;
+}
+.root[data-is-touch="false"] .search--dark .search-result__item a:hover::after{
+    width: 100%;
+    transition: width .3s;
+}
