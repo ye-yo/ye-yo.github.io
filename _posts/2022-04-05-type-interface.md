@@ -2,7 +2,7 @@
 title: Type vs Interface 어떤 걸 사용해야 할까?
 categories: Typescript
 tags: [Typescript]
-expert: Type과 Interface는 어떻게 다르고 무엇을 사용해야 할까?
+excerpt: Type과 Interface는 어떻게 다르고 무엇을 사용해야 할까?
 ---
 
 > Typescript를 공부하다보면 타입 정의 시에 `type`과 `interface` 중 어떤 것을 써야하는지 고민이 될 것이다. 개발하면서 한 번 찾아보았었던 문제인데, 보다 자세한 근거를 찾아 다시 정리해보려고 한다.

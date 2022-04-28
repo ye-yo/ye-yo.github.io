@@ -2,7 +2,7 @@
 title: data fetching & filtering 구현 방식
 categories: TIL
 tags: [TIL]
-expert: 데이처 feching과 filtering을 구현하는 다양한 방식
+excerpt: 데이처 feching과 filtering을 구현하는 다양한 방식
 ---
 
 > 코드스테이츠 X 원티드 프리온보딩 FE 코스 study 자료를 바탕으로 정리하였습니다.

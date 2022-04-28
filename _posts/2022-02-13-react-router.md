@@ -2,7 +2,7 @@
 title: React Router
 categories: React
 tags: [React, React Router]
-expert: React Router에 대해서
+excerpt: React Router에 대해서
 ---
 
 > React Router를 사용해보기 전, 간단하게 사용방법을 익히고 시작하고자 작성하게되었으며, React v18과 react-router v6를 기준으로 작성하였다.  

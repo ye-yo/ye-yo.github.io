@@ -2,7 +2,7 @@
 title: 디바운스(Debounce) & 쓰로틀(Throttle)
 categories: TIL
 tags: [TIL]
-expert: 헷갈리는 디바운스(Debounce)와 쓰로틀(Throttle) 개념 정리
+excerpt: 헷갈리는 디바운스(Debounce)와 쓰로틀(Throttle) 개념 정리
 ---
 
 # Debounce와 Throttle

@@ -2,7 +2,7 @@
 title: Styled-Components - 심화
 categories: React
 tags: [React, Styled Components]
-expert: Styled-Components 심화 내용
+excerpt: Styled-Components 심화 내용
 ---
 
 > 이전 포스팅에 이어서 styled-components 공식문서의 API 페이지에 있는 내용들 중 이해한 내용을 우선적으로 정리했다.

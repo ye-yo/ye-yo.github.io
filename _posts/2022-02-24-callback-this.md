@@ -3,7 +3,7 @@ title: Callback 함수와 this
 categories: Javascript
 tags: Javascript
 date: 2022-02-24 14:42:07 +0900
-expert: Callback 함수와 this 개념 정리
+excerpt: Callback 함수와 this 개념 정리
 ---
 
 # 💡 Callback 함수

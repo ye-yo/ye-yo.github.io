@@ -2,7 +2,7 @@
 title: Typescript란?
 categories: Typescript
 tags: [TIL, Typescript]
-expert: Typescript의 등장 배경 및 장점
+excerpt: Typescript의 등장 배경 및 장점
 ---
 
 ## Typescript 등장 배경

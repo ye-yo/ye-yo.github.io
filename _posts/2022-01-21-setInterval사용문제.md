@@ -2,7 +2,7 @@
 title: React Hooks에서 setInterval() 사용 문제
 categories: React
 tags: React
-expert: React Hooks에서 setInterval() 사용 문제를 해결하기 위한 useInterval() 커스텀 훅 구현하기
+excerpt: React Hooks에서 setInterval() 사용 문제를 해결하기 위한 useInterval() 커스텀 훅 구현하기
 ---
 
 자동 슬라이드 기능을 구현하면서 `setInterval()`을 써야했는데 원하는대로 동작하지 않았다. 그래서 문제 상황과 원인 그리고 해결방법을 공부하게 되었고, 공부한 내용을 토대로 정리해보려고 한다.

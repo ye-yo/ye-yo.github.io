@@ -2,7 +2,7 @@
 title: React18 변경사항에 따라 ReactDOM.render > createRoot로 변경하기 (with TypeScript) | Type Assertion
 categories: Typescript
 tags: [Typescript, React]
-expert: ReactDOM.render대신 createRoot로 변경하기
+excerpt: ReactDOM.render대신 createRoot로 변경하기
 ---
 
 > React 18에서 더이상 지원하지 않는 `ReactDom.render` 대신 `createRoot`를 사용하기 위해 코드를 변경하는 과정, 그리고 TypeScript 타입 오류 해결을 위해 사용한 `Type assertion`에 대해 정리한 글입니다.

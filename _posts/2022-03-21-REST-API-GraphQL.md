@@ -2,7 +2,7 @@
 title: REST API vs GraphQL
 categories: TIL
 tags: [TIL]
-expert: REST API와 GraphQL 비교
+excerpt: REST API와 GraphQL 비교
 ---
 
 # Server API

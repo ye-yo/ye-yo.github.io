@@ -10,7 +10,7 @@ article_header:
   image:
     position: bottom
     src: https://images.velog.io/images/yeyo0x0/post/3251e97a-6016-4103-8f41-da37e4d33899/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-02-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.11.46.png
-expert: 썸네일을 생성하는 도구를 만들어 보았다!
+excerpt: 썸네일을 생성하는 도구를 만들어 보았다!
 ---
 
 <style>

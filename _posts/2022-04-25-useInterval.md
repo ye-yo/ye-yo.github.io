@@ -2,7 +2,6 @@
 title: 최근 업데이트 일자 표시 기능 구현
 categories: React
 tags: [기능구현, React]
-excerpt: 데이터를 로드할 때 마지막으로 데이터를 불러온 일자를 표시하는 기능을 구현해보았다.
 ---
 
 # setInterval 사용 시 문제

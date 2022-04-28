@@ -2,7 +2,7 @@
 title: Styled-Components - 기초
 categories: React
 tags: [React, Styled Components]
-expert: Styled-Components 내용
+excerpt: Styled-Components 내용
 ---
 
 ## 0. Styled-Components란?
