@@ -2,6 +2,7 @@
 title: REST API vs GraphQL
 categories: TIL
 tags: [TIL]
+expert: REST API와 GraphQL 비교
 ---
 
 # Server API
@@ -188,6 +189,6 @@ graphql 서버를 실행하면 [Playground](https://www.apollographql.com/docs/a
   : HTTP에선 각 메소드에 따라 캐싱이 구현되어 있으나 GraphQL에선 `POST` 메소드만을 이용하기 때문에 각 메소드에 따른 캐싱을 지원받지 못함. => 이를 보안하기 위해 Apollo 엔진에 캐싱과 영속 쿼리 등이 등장하게 됨.
 - 고정된 요청과 응답만 필요할 경우 Query로 인해 RESTful API보다 요청의 크기가 더 커진다.
 
-> 참고 자료
-
-- 코드스테이츠 UR Class 학습 자료
+> 📖 참고 자료
+>
+> - 코드스테이츠 UR Class 학습 자료

@@ -2,6 +2,7 @@
 title: React18 변경사항에 따라 ReactDOM.render > createRoot로 변경하기 (with TypeScript) | Type Assertion
 categories: Typescript
 tags: [Typescript, React]
+expert: ReactDOM.render대신 createRoot로 변경하기
 ---
 
 > React 18에서 더이상 지원하지 않는 `ReactDom.render` 대신 `createRoot`를 사용하기 위해 코드를 변경하는 과정, 그리고 TypeScript 타입 오류 해결을 위해 사용한 `Type assertion`에 대해 정리한 글입니다.
@@ -44,7 +45,7 @@ ReactDOM.render(
 ```
 
 **After**
-Typescript의 경우 @types/react-dom 설치
+Typescript의 경우 `@types/react-dom` 설치
 
 ```shell
 npm i -D @types/react-dom
@@ -76,7 +77,8 @@ root.render(
 
 # Type Assertion
 
-> Type Assertion은 컴파일러에게 변수의 타입을 알려주는 메커니즘으로 TypeScript의 타입 추론 결과가 실제와 다르게 추론되었다 생각하는 경우 사용할 수 있다. 또한 Type Assertion은 컴파일러에 의해 제거되기 때문에 코드의 런타임 동작에 영향을 미치지 않는다. \* **assertion** : 컴퓨터 프로그래밍에서 어서션(영어: assertion)은 프로그램 안에 추가하는 참·거짓을 미리 가정하는 문으로 개발자는 해당 문이 그 문의 장소에서 언제나 참이라고 간주한다. (=표명, 가정 설정문)
+> `Type Assertion`은 컴파일러에게 변수의 타입을 알려주는 메커니즘으로 TypeScript의 타입 추론 결과가 실제와 다르게 추론되었다 생각하는 경우 사용할 수 있다. 또한 Type Assertion은 컴파일러에 의해 제거되기 때문에 코드의 런타임 동작에 영향을 미치지 않는다.  
+> \* **assertion** : 컴퓨터 프로그래밍에서 어서션(영어: assertion)은 프로그램 안에 추가하는 참·거짓을 미리 가정하는 문으로 개발자는 해당 문이 그 문의 장소에서 언제나 참이라고 간주한다. (=표명, 가정 설정문)
 
 ## 1) as
 
@@ -128,7 +130,7 @@ root.render(
 );
 ```
 
-📖 참고 자료  
-[react 문서 링크](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis)   
-[Typescript 핸드북](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator)  
-[Typescript-eslint 문서](https://github.com/typescript-eslint/typescript-eslint/blob/v2.34.0/packages/eslint-plugin/docs/rules/no-non-null-assertion.md)
+> 📖 참고 자료  
+> [react 문서 링크](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis)  
+> [Typescript 핸드북](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator)  
+> [Typescript-eslint 문서](https://github.com/typescript-eslint/typescript-eslint/blob/v2.34.0/packages/eslint-plugin/docs/rules/no-non-null-assertion.md)

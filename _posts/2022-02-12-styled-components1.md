@@ -2,11 +2,12 @@
 title: Styled-Components - 기초
 categories: React
 tags: [React, Styled Components]
+expert: Styled-Components 내용
 ---
 
 ## 0. Styled-Components란?
 
-React 컴포넌트 시스템의 스타일링을 위해 CSS를 향상시켜 개발된 CSS-in-JS 방식의 라이브러리
+React 컴포넌트 시스템의 스타일링을 위해 CSS를 향상시켜 개발된 CSS-in-JS 방식의 라이브러리  
 \+ CSS-in-JS는 [관련 포스팅 참고](https://velog.io/@yeyo0x0/CSS-Sass-BEM-CSS-Modules-CSS-in-JSStyled-Components)
 
 ### + **장점**
@@ -26,8 +27,8 @@ npm install --save styled-components
 
 ## 2. 사용
 
-`styled` 메소드를 사용해 지정된 스타일을 가진 컴포넌트를 만들 수 있다.
-\*styled 메소드 : 기본 export메소드
+`styled` 메소드를 사용해 지정된 스타일을 가진 컴포넌트를 만들 수 있다.  
+\***styled** 메소드 : 기본 export메소드
 
 ```js
 const 컴포넌트명 = styled.DOM element명`
@@ -54,12 +55,12 @@ const Button = styled.button`
 
 ## 3. 기능
 
-[1) props를 전달할 수 있을까?](#1-props-전달)
-[2) 스타일을 상속할 수 있을까?](#2-스타일-확장상속)
-[3) 일반적인 DOM element로 구성된 컴포넌트도 만들 수 있을까?](#3-컴포넌트-스타일링)
-[4) attr을 지정하고 변경할 수 있을까?](#4-속성attr-지정-및-동적-변경)
-[5) scss처럼 선택자 중첩이 가능할까?](#5-선택자-중첩)
-[6) 애니메이션 따로 정의해 적용할 수 있을까?](#6-애니메이션)
+[1) props를 전달할 수 있을까?](#1-props-전달)  
+[2) 스타일을 상속할 수 있을까?](#2-스타일-확장상속)  
+[3) 일반적인 DOM element로 구성된 컴포넌트도 만들 수 있을까?](#3-컴포넌트-스타일링)  
+[4) attr을 지정하고 변경할 수 있을까?](#4-속성attr-지정-및-동적-변경)  
+[5) scss처럼 선택자 중첩이 가능할까?](#5-선택자-중첩)  
+[6) 애니메이션 따로 정의해 적용할 수 있을까?](#6-애니메이션)  
 [7) 테마에 따라 스타일을 줄 수 있을까??](#7-테마)
 
 ### 1) props 전달
@@ -121,7 +122,7 @@ const ToggleContainer = styled.div`
 `;
 ```
 
-3. props 값에 무엇인지에 따라 각기 다른 style을 주어야 할 때
+3. props 값에 무엇인지에 따라 각기 다른 style을 주어야 할 때  
    : switch나 if문을 사용해 값에 따라 style을 return하는 함수를 생성해 사용
 
 ```js
@@ -141,7 +142,8 @@ const Button = styled.button`
 `;
 ```
 
-> 참고 - [multiple-props-options-for-styled-components,Stack overflow](https://stackoverflow.com/questions/56047659/multiple-props-options-for-styled-components)
+> 📖 참고  
+> [multiple-props-options-for-styled-components,Stack overflow](https://stackoverflow.com/questions/56047659/multiple-props-options-for-styled-components)
 
 4. javascript 방식으로 작성하는 것도 지원
 
@@ -355,5 +357,5 @@ render(
 
 상위의 테마의 스타일을 참조해야되지만 상위 테마와 다르게 적용해야 할 때 함수를 사용하면 유용할 것 같다.
 
-> 참고자료 - [styled-components 공식문서](https://styled-components.com/docs/basics)
-
+> 📖 참고자료  
+> [styled-components 공식문서](https://styled-components.com/docs/basics)

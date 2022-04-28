@@ -1,8 +1,9 @@
 ---
-title: Canvas & Keyframes
+title: Callback 함수와 this
 categories: Javascript
 tags: Javascript
 date: 2022-02-24 14:42:07 +0900
+expert: Callback 함수와 this 개념 정리
 ---
 
 # 💡 Callback 함수
@@ -172,5 +173,5 @@ function func1(a, b, c) {
 }
 ```
 
-> 참고  
+> 📖 참고  
 > [코어 자바스크립트 | 3. this](https://intrepidgeeks.com/tutorial/core-javascript-3-this)

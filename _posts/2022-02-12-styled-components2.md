@@ -2,6 +2,7 @@
 title: Styled-Components - 심화
 categories: React
 tags: [React, Styled Components]
+expert: Styled-Components 심화 내용
 ---
 
 > 이전 포스팅에 이어서 styled-components 공식문서의 API 페이지에 있는 내용들 중 이해한 내용을 우선적으로 정리했다.
@@ -70,7 +71,7 @@ render(
 
 ### 1) createGlobalStyle
 
-전역 스타일을 처리하기위한 helper 함수
+전역 스타일을 처리하기위한 helper 함수  
 기본적으로 styled 컴포넌트는 로컬 css 클래스로 범위가 지정되어 다른 컴포넌트와 격리된다. createGlobalStyle의 경우에는 이 제한이 제거되고 css reset 혹은 default style을 적용하는데에 사용할 수 있다.
 
 ```js

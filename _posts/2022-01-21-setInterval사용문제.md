@@ -2,6 +2,7 @@
 title: React Hooks에서 setInterval() 사용 문제
 categories: React
 tags: React
+expert: React Hooks에서 setInterval() 사용 문제를 해결하기 위한 useInterval() 커스텀 훅 구현하기
 ---
 
 자동 슬라이드 기능을 구현하면서 `setInterval()`을 써야했는데 원하는대로 동작하지 않았다. 그래서 문제 상황과 원인 그리고 해결방법을 공부하게 되었고, 공부한 내용을 토대로 정리해보려고 한다.
@@ -53,12 +54,12 @@ useEffect(() => {
 
 하지만 `useEffect()` 두 번째 인자로 전달하는 의존성 배열 내의 값을 `useEffect()` 함수 내에서 수정하고 있기 때문에 무한루프에 빠지게 된다.
 
-<span style="font-size:40px">🤔</span> 그렇다면 어떻게 작성해야 이를 해결할 수 있을까?
+<span style="font-size:40px">🤔</span> 그렇다면 어떻게 작성해야 이를 해결할 수 있을까?  
 바로 `useRef`를 사용하여 **custom interval 훅**을 만들면 해결할 수 있다.
 
 # 2. Solution - useInterval Hooks
 
-🔑 솔루션의 핵심은 **interval을 전혀 변경하지 않고, 변경이 가능하면서 최근 interval callback을 가리키는 savedCallback 변수를 도입하는 것**이다
+🔑 솔루션의 핵심은 **interval을 전혀 변경하지 않고, 변경이 가능하면서 최근 interval callback을 가리키는 savedCallback 변수를 도입하는 것**이다  
 먼저 솔루션 코드는 다음과 같다.
 
 ```js
@@ -121,7 +122,7 @@ function useInterval(callback, delay) {
 const savedCallback = useRef();
 ```
 
-이 때, useInterval에서 `useRef` 훅을 사용한 이유는 리렌더링을 방지하기 위해서이다.
+이 때, useInterval에서 `useRef` 훅을 사용한 이유는 리렌더링을 방지하기 위해서이다.  
 `useRef`는 함수형 프로그래밍에서 사용하는 `ref`로 초기화된 ref 객체인 `{current: null}`을 반환하며 반환된 객체는 컴포넌트의 전 생애주기 동안 유지되어 `useRef`로 관리하는 값은 값이 변경되어도 컴포넌트가 리렌더링 되지 않는다.
 
 🤔 만약 `useState`를 사용했다면 어떨까?
@@ -146,7 +147,7 @@ useEffect(() => {
 
 위의 코드를 보면 callback 데이터가 바뀔 때마다 `useEffect()`가 실행되어 `savedCallback`의 current 값이 새로운 callback 데이터로 업데이트 된다.
 
-🤔 왜 `useInterval()`에 함수를 전달해서 내부에서 값을 업데이트 해주는 것일까?
+🤔 왜 `useInterval()`에 함수를 전달해서 내부에서 값을 업데이트 해주는 것일까?  
 이는 앞서 소개했던 문제상황의 case들을 생각해보면 이해할 수 있다.
 
 1. `useEffect()`는 의존성 배열을 전달하지 않으면 리렌더링 될때마다 실행된다.
@@ -171,11 +172,11 @@ useEffect(() => {
 }, [delay]);
 ```
 
-위의 `useEffect`는 delay가 변경될 때마다 실행되며 delay가 null값이 아닐 경우에 `setInterval` 함수를 호출하여 callback 함수를 실행한다.
+위의 `useEffect`는 delay가 변경될 때마다 실행되며 delay가 null값이 아닐 경우에 `setInterval` 함수를 호출하여 callback 함수를 실행한다.  
 이렇게 작성하면 1. `useEffect()`가 무한히 실행되는 것을 방지하며 delay가 변경될 때에만 타이머를 재실행하게 되며 2. 첫 번째 `useEffect()`는 콜백함수가 변경될때마다 업데이트하기 때문에 결국 두 번째 `useEffect()` 내의 `setInterval()` 함수는 재실행되지 않고도 새로 업데이트 된 콜백함수를 실행할 수 있다.
 
 이 때 delay를 null check 하는 이유는 Interval을 일시중지 할 수 있게 하기 위해서이며 `useInterval`에 null인 delay를 전달할 경우 더 이상 `setInterval` 함수가 실행되지 않게 된다.
 
-`return () => clearInterval(id);` 부분은 `clean-up` 함수로 class component의 경우는 `componentWillUnmount`라는 라이프사이클 메서드를 이용해 구현하며 funtion component의 경우는 `useEffect()`에 전달한 함수의 return 함수로 구현한다.
+`return () => clearInterval(id);` 부분은 `clean-up` 함수로 class component의 경우는 `componentWillUnmount`라는 라이프사이클 메서드를 이용해 구현하며 funtion component의 경우는 `useEffect()`에 전달한 함수의 return 함수로 구현한다.  
 `useEffect()` 내에서 함수를 반환하면 컴포넌트가 unmount 될 때 해당 함수가 실행되어 불필요한 동작을 제거하거나 메모리 누수 문제를 방지할 수 있어 사용한다.
 `

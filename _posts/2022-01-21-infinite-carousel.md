@@ -1,5 +1,5 @@
 ---
-title: 무한 슬라이드 만들기 (infinite carousel)
+title: 무한 슬라이드 만들기 (infinite carousel) + 애니메이션
 categories: React
 tags:
   [
@@ -11,6 +11,7 @@ tags:
     "무한슬라이드",
     "기능구현",
   ]
+expert: 애니메이션이 있는 무한 슬라이드 구현하기
 ---
 
 <style>
@@ -25,7 +26,7 @@ tags:
 
 [선발 과제](https://www.notion.so/X-9e8ff10dd1614112a81797219b7e6742)는 원티드 페이지 상단 영역을 React로 클론하는 것이었다. React를 공부하고 있는 중이어서 공부한 내용을 토대로 직접 구현해 볼 수 있는 좋은 기회라고 생각했다.
 
-![원티드 상단 영역](https://images.velog.io/images/yeyo0x0/post/0b0f35a2-a55e-4799-b14a-6abe4933e606/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-21%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2011.06.22.png)구현해야 하는 것은 GNB,Slider(Carousel),반응형이었고 이 중 <b style="font-weight:bold; color:#ea4848">Slider는 라이브러리 없이 구현하는 것이 조건</b>이었다.
+![원티드 상단 영역](https://images.velog.io/images/yeyo0x0/post/0b0f35a2-a55e-4799-b14a-6abe4933e606/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-01-21%20%E1%84%8B%E1%85%A9%E1%84%8C%E1%85%A5%E1%86%AB%2011.06.22.png)구현해야 하는 것은 GNB,Slider(Carousel),반응형이었고 이 중 <b style="font-weight:bold; color:#ea4848">Slider는 라이브러리 없이 구현하는 것이 조건</b>이었다.  
 이전 프로젝트들에서는 `Slick` 라이브러리를 사용해 Slider를 여러 번 만들어보았지만 직접 만들어보는 것은 처음이었다. 하지만 라이브러리를 사용하면서도 직접 구현해보고 싶은 마음이 있었고 원리를 이해할 수 있는 좋은 기회인 것 같아 직접 구현해보기로 했다.
 
 슬라이드의 기본 구조는 다음과 같다.
@@ -43,7 +44,7 @@ function Slider() {
                             slides.map((color, index) =>
                                 <div key={index} className="slider-item" >
                                     <a>
-                                        <div style={% raw %} background: color {% endraw %}>
+                                        <div style={% raw %}{{  background: color }}{% endraw %}>
                                             {index}
                                         </div>
                                     </a>
@@ -63,7 +64,7 @@ export default Slider;
 
 <b style="color:#999999">🔑 KeyPoint : translateX & currentIndex</b>
 
-가장 기본이되는 슬라이드 이동 함수를 만들어 보자.
+가장 기본이되는 슬라이드 이동 함수를 만들어 보자.  
 현재 슬라이드를 중앙으로 이동시키기 위해서는 현재 슬라이드의 index를 저장할 state가 필요하며 css의 `transform: translateX()` 속성을 현재 슬라이드의 index에 따라 수정해주면 된다.
 
 먼저 현재 슬라이드의 index를 저장할 `currentIndex` state를 생성한다.
@@ -76,10 +77,10 @@ const [currentIndex, setCurrentIndex] = useState(0);
 
 ```js
 <div className="slider-track"
- style={% raw %}transform: `translateX(${(-100 / slides.length) * (0.5 + currentIndex)}%)`{% endraw %}>
+ style={% raw %}{{ transform: `translateX(${(-100 / slides.length) * (0.5 + currentIndex)}%)`}}{% endraw %}>
 ```
 
-`translateX` 값은 원하는 슬라이드 레이아웃에 따라 계산방식이 달라질 수 있는데,
+`translateX` 값은 원하는 슬라이드 레이아웃에 따라 계산방식이 달라질 수 있는데,  
 현재 슬라이드를 중앙정렬하고 싶다면 `slider-track`의 `left` style은 `50%`로 설정하고 위와 같이 작성하면 현재 슬라이드가 중앙에 위치하도록 할 수 있다.
 
 ## # translateX 값 계산
@@ -99,7 +100,7 @@ translateX(${-1 * ((100 / slides.length * 0.5) + (100 / slides.length * currentI
 - `-1 *` : 트랙의 기본 위치에서 왼쪽으로 이동시키기 위해서는 음수 값을 가져야 하기 때문.
 - `100 / slides.length * 0.5(슬라이드 한 개의 너비의 반)`
   : 슬라이드 트랙은 슬라이드 개수 만큼의 width를 가지기 때문에 하나의 슬라이드는 결국 `트랙의 너비 / 슬라이드 개수`만큼의 width를 가진다. 예를 들면 4개의 슬라이드를 가진 트랙이 하나의 슬라이드 만큼 위치를 이동하려면 `100/4`% 즉 25% 만큼 이동해야 한다.
-- `100 / slides.length * currentIndex(슬라이드 한 개의 너비 * 현재 슬라이드 index)`
+- `100 / slides.length * currentIndex(슬라이드 한 개의 너비 * 현재 슬라이드 index)`  
   : 다음 슬라이드가 기준점(중앙)에 오도록 트랙을 이동하려면 슬라이드 한 개의 너비만큼 이동하면 되고, 예를 들어 `3번째 슬라이드(index는 2)`가 기준점에 위치하도록 하고 싶다면 첫번째, 두번째 슬라이드 만큼 트랙을 이동시켜야 3번째 슬라이드가 기준점에 올 수 있기 때문에 `currentIndex`값을 곱한다.
 
 이렇게 하면 `currentIndex`값에 따라 슬라이드가 해당하는 만큼을 이동하게 된다.
@@ -117,7 +118,7 @@ return (
             <div className="slider">
                 <SlideButton direction="prev" onClick={() => handleSwipe(-1)} />
                 <SlideButton direction="next" onClick={() => handleSwipe(1)} />
-                <div className="slider-list" style={% raw %} padding: sliderPaddingStyle {% endraw %}>
+                <div className="slider-list" style={% raw %}{{  padding: sliderPaddingStyle }}{% endraw %}>
                     ...
                 </div>
             </div >
@@ -206,14 +207,14 @@ function handleSwipe(direction) {
 }
 ```
 
-위와 같이 작성하면 첫번째 슬라이드에서 이전슬라이드로 이동시, 마지막 슬라이드에서 다음 슬라이드로 이동시 각각 마지막, 첫번째 슬라이드로 이동한다. 하지만 문제는 슬라이드 이동 효과였다! 끝과 끝으로 이동해야 하기 때문에 한 슬라이드씩 넘어가는 것처럼 보이지 않았다.
+위와 같이 작성하면 첫번째 슬라이드에서 이전슬라이드로 이동시, 마지막 슬라이드에서 다음 슬라이드로 이동시 각각 마지막, 첫번째 슬라이드로 이동한다. 하지만 문제는 슬라이드 이동 효과였다! 끝과 끝으로 이동해야 하기 때문에 한 슬라이드씩 넘어가는 것처럼 보이지 않았다.  
 ![](https://images.velog.io/images/yeyo0x0/post/2448e856-07ed-43b0-b439-8360afbee47e/ezgif-7-43a54d400c.gif)
 
 ## # 해결방법
 
 <span style="font-size:40px">🤔</span> 그렇다면 끝과 끝 슬라이드로 이동 시 어떻게하면 한 슬라이드가 넘어간 것처럼 보이게 할 수 있을까?
 
-이것은 약간의 속임수로 해결할 수 있다.
+이것은 약간의 속임수로 해결할 수 있다.  
 바로 양 끝에 복제 슬라이드를 두고 다음 슬라이드로 넘어가는 척하면서 실제 슬라이드 위치로 빠르게 이동하는 것이다. 단계를 구분하자면 다음과 같다.
 
 1. 끝과 끝에 복제 슬라이드를 만들어 둔다.
@@ -233,9 +234,9 @@ gif의 마지막 부분을 보면 숫자가 **0(5)**에서 **0(2)**로 변하는
 
 ### 1) 복제 슬라이드 추가
 
-위에서 설명한 로직대로 무한 슬라이드를 만들어보자.
-먼저 슬라이드 배열을 가공해주어야 한다.
-기본적으로는 양 옆에 1개의 데이터를 더 추가해주면 되지만 나의 경우는 원티드 슬라이더 레이아웃과 동일하게 만들고자 했고, 원티드는 양 옆에 이전/다음 슬라이드의 일부가 보이기 때문에 슬라이드 배열 앞뒤로 2개의 슬라이드를 각각 추가해주어야 슬라이드가 전환될 때의 빈 공간이 보이지 않는다.
+위에서 설명한 로직대로 무한 슬라이드를 만들어보자.  
+먼저 슬라이드 배열을 가공해주어야 한다.  
+기본적으로는 양 옆에 1개의 데이터를 더 추가해주면 되지만 나의 경우는 원티드 슬라이더 레이아웃과 동일하게 만들고자 했고, 원티드는 양 옆에 이전/다음 슬라이드의 일부가 보이기 때문에 슬라이드 배열 앞뒤로 2개의 슬라이드를 각각 추가해주어야 슬라이드가 전환될 때의 빈 공간이 보이지 않는다.  
 <span style="font-size:16px; color: #888;">(같은 방식으로 슬라이드 양끝에 2개의 슬라이드가 미리 보여야 한다면 배열 앞뒤로 3개의 슬라이드를 추가해주면 된다.)</span>
 
 ```js
@@ -262,18 +263,18 @@ array에서 앞 뒤로 2개의 데이터을 더 가져와 원본 배열과 합�
 
 ```js
 <div className="slider-track"
-    style={% raw %}
+    style={% raw %}{{
        transform: `translateX(${(-100 / slides.length) * (0.5 + currentIndex)}%)`
-    {% endraw %}>
+    }}{% endraw %}>
     {
       slides.map((slide, slideIndex) => {
         const itemIndex = getItemIndex(slideIndex);
         return (
           <div key={slideIndex}
 	    className={`slider-item ${currentIndex === slideIndex ? 'current-slide' : ''}`}
-            style={% raw %} width: newItemWidth || 'auto' {% endraw %} >
+            style={% raw %}{{  width: newItemWidth || 'auto' }}{% endraw %} >
             <a href="/">
-              <div style={% raw %} background: items[itemIndex] {% endraw %}>
+              <div style={% raw %}{{  background: items[itemIndex] }}{% endraw %}>
               	{itemIndex}({slideIndex})
               </div>
             </a>
@@ -332,10 +333,10 @@ function handleSwipe(direction) {
  return (
         ...
            <div className="slider-track"
-               style={% raw %}
+               style={% raw %}{{
                transform: `translateX(${(-100 / slides.length) * (0.5 + currentIndex)}%)`,
             	transition: slideTransition
-            {% endraw %}>
+            }}{% endraw %}>
         ...
     );
 ```

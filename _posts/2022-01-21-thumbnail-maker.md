@@ -10,6 +10,7 @@ article_header:
   image:
     position: bottom
     src: https://images.velog.io/images/yeyo0x0/post/3251e97a-6016-4103-8f41-da37e4d33899/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA%202022-02-06%20%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE%201.11.46.png
+expert: 썸네일을 생성하는 도구를 만들어 보았다!
 ---
 
 <style>
@@ -20,14 +21,15 @@ article_header:
 
 ## 1. 소개
 
-> **Thumbnail Maker**
-> 빠르고 간편하게 썸네일 이미지를 만들 수 있는 사이트
-> [Thumbnail Maker 바로가기](https://ye-yo.github.io/thumbnail-maker/) > [Github](https://github.com/ye-yo/thumbnail-maker/blob/main/README.md)
+> **Thumbnail Maker**  
+> 빠르고 간편하게 썸네일 이미지를 만들 수 있는 사이트  
+> [Thumbnail Maker 바로가기](https://ye-yo.github.io/thumbnail-maker/)  
+> [Github](https://github.com/ye-yo/thumbnail-maker/blob/main/README.md)
 
 ## 2. 개발 동기
 
-시작은 velog를 사용하면서 **썸네일 이미지의 필요성을 느끼면서부터이**다.
-원래 글을 작성할 때 썸네일을 신경쓰는 편이 아니었는데, 이번에 velog를 사용하면서 보니 카드형식의 포스트 목록에서는 썸네일 이미지가 있을 때 확실히 주제가 명확하게 보이고, 보기에도 좋다고 느꼈다. 그래서 썸네일 이미지를 등록해보기 시작했고, 아무렇게나 이미지를 올릴 경우 이미지 일부가 잘릴 수 있기 때문에 규격에 맞추어 이미지를 편집해 업로드해야 했다. 하지만 매번 썸네일을 만들려다보니 이조차도 여간 번거로운 일이 아니었다...😫 그러다 썸네일을 간편하게 만들 수 있는 사이트가 없을까 검색해보게 되었고 다양한 사이트가 이미 많았지만 <span style="backgroundColor:rgb(209 208 213 / 32%)">나의 필요에 맞는 썸네일 메이킹 툴</span>을 위해서 직접 만들어보기로 했다.
+시작은 velog를 사용하면서 **썸네일 이미지의 필요성을 느끼면서부터**이다.  
+원래 글을 작성할 때 썸네일을 신경쓰는 편이 아니었는데, 이번에 velog를 사용하면서 보니 카드형식의 포스트 목록에서는 썸네일 이미지가 있을 때 확실히 주제가 명확하게 보이고, 보기에도 좋다고 느꼈다. 그래서 썸네일 이미지를 등록해보기 시작했고, 아무렇게나 이미지를 올릴 경우 이미지 일부가 잘릴 수 있기 때문에 규격에 맞추어 이미지를 편집해 업로드해야 했다. 하지만 매번 썸네일을 만들려다보니 이조차도 여간 번거로운 일이 아니었다...😫 그러다 썸네일을 간편하게 만들 수 있는 사이트가 없을까 검색해보게 되었고 다양한 사이트가 이미 많았지만 `나의 필요에 맞는 썸네일 메이킹 툴`을 위해서 직접 만들어보기로 했다.
 
 ## 3. 디자인 및 기능 구상
 
@@ -44,9 +46,9 @@ article_header:
 
 가장 핵심적인 기능인 텍스트 입력, 이미지 생성 기능을 포함하면서도 직접 썸네일을 만들었을 때 필요했던 기능들과, 테스트해가면서 불편한 부분을 해소할 수 있는 기능들을 추가하여 최종적으로 아래와 같은 기능을 개발하게 되었다.
 
-**1. Ratio** : 비율 조정 및 플랫폼 별 권장 비율(규격) 제공
-**2. Layout**: 다양한 종류의 레이아웃 템플릿을 통해 보다 빠르게 썸네일 제작 가능
-**3. Background** : 색상/그라데이션/이미지 배경 선택 및 랜덤 색상/그라데이션 적용 가능
+**1. Ratio** : 비율 조정 및 플랫폼 별 권장 비율(규격) 제공  
+**2. Layout**: 다양한 종류의 레이아웃 템플릿을 통해 보다 빠르게 썸네일 제작 가능  
+**3. Background** : 색상/그라데이션/이미지 배경 선택 및 랜덤 색상/그라데이션 적용 가능  
 **4. Assets** :
 
 - 텍스트/이미지 추가 및 사이즈/위치 조절 기능
@@ -74,7 +76,7 @@ article_header:
 
 ### 4.3 Background - 배경 변경 기능
 
-썸네일 배경은 색상, 이미지 2가지 타입으로 변경할 수 있다.
+썸네일 배경은 색상, 이미지 2가지 타입으로 변경할 수 있다.  
 색상탭에서는 색상 및 그라데이션 배경을 적용할 수 있고, 기본적인 `colorList`를 제공하며 다양한 색상 선택을 위해서 [React-color](https://github.com/casesandberg/react-color) 라이브러리를 사용해 `SketchPicker`를 추가했다.
 
 ![그라데이션 편집](https://images.velog.io/images/yeyo0x0/post/9389fdb4-068e-4c76-8c0b-9ed2985718e5/%E1%84%80%E1%85%B3%E1%84%85%E1%85%A1%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%89%E1%85%A7%E1%86%AB%20%E1%84%91%E1%85%A7%E1%86%AB%E1%84%8C%E1%85%B5%E1%86%B8.gif)
@@ -83,13 +85,13 @@ picker와 colorList는 서로 연동되도록 만들었다. colorList에서 색�
 그라데이션은 간단하게 2가지 색상으로 그라데이션을 구성할 수 있게 만들었고, 색상 변경은 물론 `linear`, `radial`로의 형태 변경과 linear의 경우는 방향도 45도씩 변경할 수 있게 만들었다.
 
 ![랜덤색상/그라데이션](https://images.velog.io/images/yeyo0x0/post/33ac1553-13d2-4d4d-b9aa-a5bdf6e19db2/%E1%84%80%E1%85%B3%E1%84%85%E1%85%A1%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%89%E1%85%A7%E1%86%AB%E1%84%85%E1%85%A2%E1%86%AB%E1%84%83%E1%85%A5%E1%86%B7.gif)
-랜덤으로 색상과 그라데이션을 적용할 수 있는 버튼도 구현하였다.
+랜덤으로 색상과 그라데이션을 적용할 수 있는 버튼도 구현하였다.  
 색상값은 테스트해보면서 80~240 사이의 숫자를 return하는 함수(`getRandNumber()`) 를 하나 만들었고 색상과 그라데이션 생성 함수를 각각 만들어 해당 함수에서 getRandNumber함수를 호출하도록 했다.
 
 ### 4.4 Assets - 텍스트, 이미지 추가 및 편집
 
 ![텍스트스타일수정](https://images.velog.io/images/yeyo0x0/post/5624d4bf-ac43-49a9-86a6-4067d76d51eb/%E1%84%91%E1%85%A9%E1%86%AB%E1%84%90%E1%85%B3%20%E1%84%89%E1%85%AE%E1%84%8C%E1%85%A5%E1%86%BC.gif)
-Assets 섹션에서는 텍스트와 이미지 같은 Asset을 추가하고 스타일을 수정할 수 있다.
+Assets 섹션에서는 텍스트와 이미지 같은 Asset을 추가하고 스타일을 수정할 수 있다.  
 먼저 Text 탭에서 수정가능한 스타일 목록은 다음과 같다.
 
 > 폰트, 글씨크기, 굵기, 밑줄, 글씨색상, 배경색상, 정렬, 그림자
@@ -107,9 +109,9 @@ Assets 섹션에서는 텍스트와 이미지 같은 Asset을 추가하고 스�
 
 ### 4.5 Export - 썸네일 이미지 생성
 
-화면을 이미지로 내보내는 것은 이전에 사용해본 적이 있는 [html2canvas](https://github.com/niklasvh/html2canvas) 라이브러리를 사용했다.
-처음 사용 시에는 내가 작성한 css 코드로 인해 canvas에 추가된 asset들이 전혀 출력되지 않는 문제가 있었어서 라이브러리 적용에 문제가 있는 건가 싶어 비슷한 라이브러리인 [dom-to-image](https://github.com/tsayen/dom-to-image)를 사용해 보기도 했다.
-_dom-to-image는 기본 코드로는 width, height가 canvas size 그대로 출력되어 화질이 저하되는 문제가 있는데 scale up을 해서 출력하는 과정을 추가하면 해결이 가능했다. html2canvas는 기본적으로 scale up해서 출력하는 것으로 보인다._
+화면을 이미지로 내보내는 것은 이전에 사용해본 적이 있는 [html2canvas](https://github.com/niklasvh/html2canvas) 라이브러리를 사용했다.  
+처음 사용 시에는 내가 작성한 css 코드로 인해 canvas에 추가된 asset들이 전혀 출력되지 않는 문제가 있었어서 라이브러리 적용에 문제가 있는 건가 싶어 비슷한 라이브러리인 [dom-to-image](https://github.com/tsayen/dom-to-image)를 사용해 보기도 했다.  
+\_dom-to-image는 기본 코드로는 width, height가 canvas size 그대로 출력되어 화질이 저하되는 문제가 있는데 scale up을 해서 출력하는 과정을 추가하면 해결이 가능했다. html2canvas는 기본적으로 scale up해서 출력하는 것으로 보인다.  
 아무튼 썸네일 메이커 완성 후 html2canvas가 왜 제대로 작동하지 않는 것인지 알아보려고 이것저것 시도해보다가 reset code로 작성했던 `img{ width:100%; height: 100%}` 코드가 문제라는 것을 찾아내어 다시 html2canvas로 변경해 export 기능을 완성하였다.
 
 ## 5. Issue 🤔
@@ -143,7 +145,7 @@ _dom-to-image는 기본 코드로는 width, height가 canvas size 그대로 출�
     },
 ```
 
-style 속성을 object 형태로 가지고 있기 때문에 레이아웃 템플릿을 선택하면 해당 템플릿에 해당하는 style object를 새로운 asset의 style 속성으로 적용시켜 주면 된다.
+style 속성을 object 형태로 가지고 있기 때문에 레이아웃 템플릿을 선택하면 해당 템플릿에 해당하는 style object를 새로운 asset의 style 속성으로 적용시켜 주면 된다.  
 하지만 react-rnd 라이브러리의 경우 `top`, `left` 값은 0으로 고정되어있고 `transform`으로 위치를 조정하며, `position` props를 주어 위치를 조정할 수 있지만 `%` 단위는 지원하고 있지 않았다. 때문에 에셋이 중앙, 혹은 % 단위의 위치를 가지도록 하기위해서는 이를 계산하는 함수가 필요했다.
 
 먼저 style object에서 transform 속성은 없애고 top, left는 x, y로 대체했다. 데이터만 봤을 때에도 위치를 파악할 수 있었으면 해서 %단위는 그대로 사용하였다.
@@ -162,7 +164,7 @@ style 속성을 object 형태로 가지고 있기 때문에 레이아웃 템플�
 },
 ```
 
-style object를 변경한 다음에는 asset이 추가되어 첫 렌더링이 일어날 때 asset의 x,y 값을 재조정하는 코드를 작성했다. x,y 값을 %에서 백분율로 변경하고, transform 속성의 <span style="textDecoration: underline;">translate 값을 설정할 때와 비슷하게</span> `현재 canvasWidth * 백분율 - assetWidth / 2`와 같이 새로운 위치를 계산해서 변경해주었다.
+style object를 변경한 다음에는 asset이 추가되어 첫 렌더링이 일어날 때 asset의 x,y 값을 재조정하는 코드를 작성했다. x,y 값을 %에서 백분율로 변경하고, transform 속성의 <span style="textDecoration: underline;">translate 값을 설정할 때와 비슷하게</span> `현재 canvasWidth * 백분율 - assetWidth / 2`와 같이 새로운 위치를 계산해서 변경해주었다.  
 또한 캔버스 비율이 달라짐에 따라 에셋의 위치가 자동 조정될 수 있도록 `이전 캔버스 사이즈: 이전 위치 = 현재 캔버스 사이즈 : 현재 위치` 비례식을 세워 위치를 재조정하는 코드를 작성했고, 에셋의 정중앙을 기준으로 위치를 다시 잡아야하기 때문에 이전 x,y 값에 width, height 절반을 더해 중앙 위치를 기준으로 새 위치를 계산하고 계산된 값에 다시 width, height 절반을 빼 올바른 x,y 값을 가지도록 만들었다.
 
 ```js
