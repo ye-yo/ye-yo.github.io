@@ -8,7 +8,7 @@ tags: [기능구현, React]
 
 React에서는 javascript에서 사용하는 것과 같이 `setInterval`을 사용하면 의도대로 구현되지 않는다. 자세한 내용은 별도 포스팅에 정리해두었으나 간단하게 요약하면
 
-- 단순 함수로 구현하여 stateㄹ르 변경하면 App이 re-rendering 되면서 무한히 함수가 실행된다.
+- 단순 함수로 구현하여 state를 변경하면 App이 re-rendering 되면서 무한히 함수가 실행된다.
 - useEffect를 이용해 구현했을 경우, dependency로 값을 전달하지 않으면 업데이트 된 값을 참조할 수 없고, 전달할 경우 **무한루프**에 빠진다.
 
 이를 해결하기 위해서는 `useRef`를 사용해서 custom Interavl 훅을 만들어야 한다.
