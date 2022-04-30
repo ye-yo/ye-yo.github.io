@@ -13,10 +13,10 @@ article_header:
 excerpt: 썸네일을 생성하는 도구를 만들어 보았다!
 ---
 
-<style>
-  img{
-  	width:100%;
-  }
+<style>  
+  img{  
+  	width:100%;  
+  }  
 </style>
 
 ## 1. 소개
@@ -37,9 +37,9 @@ excerpt: 썸네일을 생성하는 도구를 만들어 보았다!
 
 처음에 대략적으로 화면 구성을 디자인해서 이를 바탕으로 개발에 들어갔다. 지금은 개발하면서 이것 저것 바뀌고 추가되기도 했고, 색상이나 배치를 고민해보면서 현재와 같은 디자인으로 완성되었다.
 
-<figure>
-  <img alt="초기 디자인 및 현재 디자인" src="https://images.velog.io/images/yeyo0x0/post/f5b84547-d9f0-4d00-aa78-8820ff658fb8/%E1%84%80%E1%85%B3%E1%84%85%E1%85%AE%E1%86%B8%204.png"/>
-	<figcaption style="font-size:14px; textAlign: center;">초기디자인(왼쪽) 및 현재 디자인(오른쪽)</figcaption>
+<figure>  
+  <img alt="초기 디자인 및 현재 디자인" src="https://images.velog.io/images/yeyo0x0/post/f5b84547-d9f0-4d00-aa78-8820ff658fb8/%E1%84%80%E1%85%B3%E1%84%85%E1%85%AE%E1%86%B8%204.png"/>  
+	<figcaption style="font-size:14px; textAlign: center;">초기디자인(왼쪽) 및 현재 디자인(오른쪽)</figcaption>  
 </figure>
 
 ### 3-2) 기능 🔧
@@ -71,7 +71,7 @@ excerpt: 썸네일을 생성하는 도구를 만들어 보았다!
 
 ### 4.2 Layout - 레이아웃 템플릿 적용
 
-![](https://images.velog.io/images/yeyo0x0/post/52ff155d-55f9-48ce-a1ac-53988d26f3d3/%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%BA.gif)
+![](https://images.velog.io/images/yeyo0x0/post/52ff155d-55f9-48ce-a1ac-53988d26f3d3/%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%BA.gif)  
 총 10가지의 템플릿을 제공하고 선택한 템플릿 스타일에 맞게 canvas의 asset 목록이 변경되어 재렌더링 된다.
 
 ### 4.3 Background - 배경 변경 기능
@@ -79,18 +79,18 @@ excerpt: 썸네일을 생성하는 도구를 만들어 보았다!
 썸네일 배경은 색상, 이미지 2가지 타입으로 변경할 수 있다.  
 색상탭에서는 색상 및 그라데이션 배경을 적용할 수 있고, 기본적인 `colorList`를 제공하며 다양한 색상 선택을 위해서 [React-color](https://github.com/casesandberg/react-color) 라이브러리를 사용해 `SketchPicker`를 추가했다.
 
-![그라데이션 편집](https://images.velog.io/images/yeyo0x0/post/9389fdb4-068e-4c76-8c0b-9ed2985718e5/%E1%84%80%E1%85%B3%E1%84%85%E1%85%A1%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%89%E1%85%A7%E1%86%AB%20%E1%84%91%E1%85%A7%E1%86%AB%E1%84%8C%E1%85%B5%E1%86%B8.gif)
+![그라데이션 편집](https://images.velog.io/images/yeyo0x0/post/9389fdb4-068e-4c76-8c0b-9ed2985718e5/%E1%84%80%E1%85%B3%E1%84%85%E1%85%A1%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%89%E1%85%A7%E1%86%AB%20%E1%84%91%E1%85%A7%E1%86%AB%E1%84%8C%E1%85%B5%E1%86%B8.gif)  
 picker와 colorList는 서로 연동되도록 만들었다. colorList에서 색상을 선택하면 해당하는 색상으로 picker의 `rgba` 값이 변경되고, 반대로 picker의 rgba값을 변경하면 현재 선택된 색상이 picker에서 선택된 색상으로 변경되기 때문에 나만의 색상표를 만들어 여러가지 색상을 테스트해볼 수도 있다.
 
 그라데이션은 간단하게 2가지 색상으로 그라데이션을 구성할 수 있게 만들었고, 색상 변경은 물론 `linear`, `radial`로의 형태 변경과 linear의 경우는 방향도 45도씩 변경할 수 있게 만들었다.
 
-![랜덤색상/그라데이션](https://images.velog.io/images/yeyo0x0/post/33ac1553-13d2-4d4d-b9aa-a5bdf6e19db2/%E1%84%80%E1%85%B3%E1%84%85%E1%85%A1%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%89%E1%85%A7%E1%86%AB%E1%84%85%E1%85%A2%E1%86%AB%E1%84%83%E1%85%A5%E1%86%B7.gif)
+![랜덤색상/그라데이션](https://images.velog.io/images/yeyo0x0/post/33ac1553-13d2-4d4d-b9aa-a5bdf6e19db2/%E1%84%80%E1%85%B3%E1%84%85%E1%85%A1%E1%84%83%E1%85%A6%E1%84%8B%E1%85%B5%E1%84%89%E1%85%A7%E1%86%AB%E1%84%85%E1%85%A2%E1%86%AB%E1%84%83%E1%85%A5%E1%86%B7.gif)  
 랜덤으로 색상과 그라데이션을 적용할 수 있는 버튼도 구현하였다.  
 색상값은 테스트해보면서 80~240 사이의 숫자를 return하는 함수(`getRandNumber()`) 를 하나 만들었고 색상과 그라데이션 생성 함수를 각각 만들어 해당 함수에서 getRandNumber함수를 호출하도록 했다.
 
 ### 4.4 Assets - 텍스트, 이미지 추가 및 편집
 
-![텍스트스타일수정](https://images.velog.io/images/yeyo0x0/post/5624d4bf-ac43-49a9-86a6-4067d76d51eb/%E1%84%91%E1%85%A9%E1%86%AB%E1%84%90%E1%85%B3%20%E1%84%89%E1%85%AE%E1%84%8C%E1%85%A5%E1%86%BC.gif)
+![텍스트스타일수정](https://images.velog.io/images/yeyo0x0/post/5624d4bf-ac43-49a9-86a6-4067d76d51eb/%E1%84%91%E1%85%A9%E1%86%AB%E1%84%90%E1%85%B3%20%E1%84%89%E1%85%AE%E1%84%8C%E1%85%A5%E1%86%BC.gif)  
 Assets 섹션에서는 텍스트와 이미지 같은 Asset을 추가하고 스타일을 수정할 수 있다.  
 먼저 Text 탭에서 수정가능한 스타일 목록은 다음과 같다.
 
@@ -102,7 +102,7 @@ Assets 섹션에서는 텍스트와 이미지 같은 Asset을 추가하고 스�
 
 템플릿 레이아웃 외에도 텍스트를 추가할 수 있도록 하기 위해 `title`, `sub title`, `text` 3가지의 에셋 추가 버튼을 만들어 두었다.
 
-![Asset 이미지](https://images.velog.io/images/yeyo0x0/post/bd822945-8cf9-4585-a36f-6a5b14223846/Asset%20%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.gif)
+![Asset 이미지](https://images.velog.io/images/yeyo0x0/post/bd822945-8cf9-4585-a36f-6a5b14223846/Asset%20%E1%84%8B%E1%85%B5%E1%84%86%E1%85%B5%E1%84%8C%E1%85%B5.gif)  
 이미지탭에서는 이미지를 업로드해 canvas에 추가할 수 있다. 썸네일 생성 시 아이콘이나 내용과 관련된 이미지를 추가하고 싶을 때가 있는데 이미지 에셋을 추가해 자유롭게 배치할 수 있다.
 
 에셋의 배치 및 크기 조정은 [React-rnd](https://github.com/bokuweb/react-rnd) 라이브러리를 활용했다.

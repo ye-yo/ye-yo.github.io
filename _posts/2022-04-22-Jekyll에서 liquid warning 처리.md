@@ -20,7 +20,7 @@ Jekyll 에서 사용되는 [liquid](#liquid)가 `{% raw %}{{`와 `}}{% endraw %}
 
 ![liquid](/img/liquid2.png)
 
-적용 후
+적용 후  
 ![liquid](/img/liquid3.png)
 
 ### Liquid

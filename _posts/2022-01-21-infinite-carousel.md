@@ -14,10 +14,10 @@ tags:
 excerpt: 애니메이션이 있는 무한 슬라이드 구현하기
 ---
 
-<style>
-  img{
-  	width:100%;
-  }
+<style>  
+  img{  
+  	width:100%;  
+  }  
 </style>
 
 ![](https://velog.velcdn.com/images%2Fyeyo0x0%2Fpost%2F4d1d2b25-2333-4b8e-a949-fbb800a4516d%2Fezgif-2-c26f8cda40.gif)

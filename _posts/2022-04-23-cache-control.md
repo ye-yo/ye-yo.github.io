@@ -18,7 +18,7 @@ excerpt: 네트워크 요청을 최적화하기 위한 HTTP 캐시 처리 방법
 
 - `Cache-Control` : 캐시의 수명을 결정할 수 있다.
 - `ETag` : 컨텐츠가 변경되었는지를 검사하는 태그.
-  같은 주소의 자원이라도 컨텐츠가 달라졌으면 ETag가 다름.
+  같은 주소의 자원이라도 컨텐츠가 달라졌으면 ETag가 다름.  
   서버는 서버 컨텐츠(response body)가 달라졌음을 ETag를 보고 확인하여 캐시를 지우고 새로 컨텐츠를 내려 받는다.
 - `Last-Modified` : 리소스가 변경되었는지 여부를 판단한다.
 
@@ -53,13 +53,13 @@ Cache-Control: no-cache, no-store, must-revalidate
 Pragma: no-cache
 ```
 
-\* `Pragma` 헤더는 HTTP/1.1의 Cache-Control 헤더가 생기기 전에 동일한 역할로 사용되던 헤더이다.
-`Pragma: no-cache`는 `Cache-Control: no-cache`와 동일하며, HTTP/1.0을 고려하지 않는다면 생략해도 된다.
+\* `Pragma` 헤더는 HTTP/1.1의 Cache-Control 헤더가 생기기 전에 동일한 역할로 사용되던 헤더이다.  
+`Pragma: no-cache`는 `Cache-Control: no-cache`와 동일하며, HTTP/1.0을 고려하지 않는다면 생략해도 된다.  
 (비슷하게 Expires도 HTTP/1.0이며, 대응되는 Cache-Control은 `max-age`이다. 함께 사용 시 Expires는 무시된다.)
 
 # 재검증 요청 (요청 헤더)
 
-캐시의 유효 기간이 지나면 캐시는 완전히 사라지는 것이 아니고, 브라우저는 서버에 캐시가 유효한지 **재검증(Revalidation)**을 요청하는 조건부 요청(Conditional request)을 수행한다.
+캐시의 유효 기간이 지나면 캐시는 완전히 사라지는 것이 아니고, 브라우저는 서버에 캐시가 유효한지 **재검증(Revalidation)**을 요청하는 조건부 요청(Conditional request)을 수행한다.  
 대표적인 재검증 요청 헤더들은 다음과 같다.
 
 - `If-None-Match` : 캐시된 리소스의 ETag 값과 현재 서버 리소스의 ETag 값이 같은지 확인하여 다를 경우에만 새로운 리소스를 가져온다.

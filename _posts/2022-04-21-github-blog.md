@@ -14,11 +14,11 @@ Github Pages를 이용하면 정적 웹사이트를 간편하게 만들 수 있�
 1. Repository 생성하기
    repository명은 반드시 **username.github.io.**
 
-   README 파일은 사이트 접속 시
+   README 파일은 사이트 접속 시  
    `https://username.github.io`로 접속하면 README 페이지를 확인할 수 있다.
 
 2. 저장소 clone
-   repo 주소를 복사한 후, 터미널을 열어
+   repo 주소를 복사한 후, 터미널을 열어  
    git clone repo주소 입력
 
 3. clone한 폴더로 이동해 index.html 파일 생성
@@ -45,7 +45,7 @@ Jekyll : 정적 웹페이지 생성기.
 - 마크다운 사용하여 간편하게 글 작성 가능
 - 다양한 테마와 플러그인 제공 및 커스터마이징 가능
 
-Jekyll은 Ruby 언어로 만들어져 있기 때문에 Ruby를 설치해주어야 한다.
+Jekyll은 Ruby 언어로 만들어져 있기 때문에 Ruby를 설치해주어야 한다.  
 mac의 경우 Ruby가 설치되어 있으나 오래된 버전이라 Jekyll을 지원하지 않을 수 있어 새로 설치가 필요하다고 한다.
 
 > 공식 문서에도 다음과 같이 나와있다.  
@@ -56,8 +56,8 @@ mac의 경우 Ruby가 설치되어 있으나 오래된 버전이라 Jekyll을 �
 
 ## 2.1 Command Line Tools 설치
 
-macOS 커맨드 라인에서 개발하려면 Command Line Tools을 설치해야 한다.
-CLT가 설치되어있는지 확인하는 방법은 터미널을 열어 **'gcc'**라고 입력했을 때
+macOS 커맨드 라인에서 개발하려면 Command Line Tools을 설치해야 한다.  
+CLT가 설치되어있는지 확인하는 방법은 터미널을 열어 **'gcc'**라고 입력했을 때  
 no developers tools were found... 라고 출력되면 설치되어있지 않은 것이다.
 
 설치가 되어있지 않다면 아래 명령어로 설치한다.
@@ -68,7 +68,7 @@ xcode-select --install
 
 ## 2.2 Home Brew 설치
 
-Ruby Version Manager를 설치하기 위해서는 Home Brew가 필요하다.
+Ruby Version Manager를 설치하기 위해서는 Home Brew가 필요하다.  
 (설치 여부는 `brew -v`로 확인)
 
 ```
@@ -85,7 +85,7 @@ brew install rbenv ruby-build
 
 ## 2.4 Ruby 설치
 
-[Ruby 공식 홈페이지에서 안정 버전 확인](https://www.ruby-lang.org/ko/downloads/)
+[Ruby 공식 홈페이지에서 안정 버전 확인](https://www.ruby-lang.org/ko/downloads/)  
 22.04.21 기준 3.1.2  
 설치 가능한 버전 확인은 `rbenv install -l` 명령어로 가능하다.
 
@@ -96,10 +96,10 @@ rbenv install 3.1.2
 rbenv global 3.1.2
 ```
 
-global 이용해서 지정안해주면 아래와 같이 system에 설치되어 있는 버전 사용하게 됨.
+global 이용해서 지정안해주면 아래와 같이 system에 설치되어 있는 버전 사용하게 됨.  
 ![](https://velog.velcdn.com/images/yeyo0x0/post/f33b6b42-443e-4fec-93f0-282ca4092345/image.png)
 
-rbenv global 이후
+rbenv global 이후  
 ![](https://velog.velcdn.com/images/yeyo0x0/post/55721a9c-b437-4604-bd7d-b01bfff11466/image.png)
 
 설치 확인
@@ -124,7 +124,7 @@ gem install jekyll bundler
 # 4. 테마 적용
 
 폴더로 이동 후 `jekyll new .` 명령어를 사용하면 기본 테마인 미니마 테마의 지킬 블로그가 생성된다.  
-(폴더가 없는 경우 `jekyll new 폴더명`)
+(폴더가 없는 경우 `jekyll new 폴더명`)  
 이 외의 Jekyll 테마는 구글에 검색하거나 [다양한 지킬 테마 사이트](#다양한-지킬-테마-사이트)에서 확인할 수 있다.  
 github에서 jekyll theme를 검색해서 찾는 방법도 추천한다.  
 마음에 드는 테마는 파일을 다운로드(github repo의 경우 zip파일 다운)해서 압축을 푼 뒤, 파일들을 나의 github.io 클론 폴더에 복사한다.
@@ -180,8 +180,8 @@ gem "jekyll-text-theme"
 theme: jekyll-text-theme
 ```
 
-=> 위의 라인 추가한 후 github push 시 오류가 발생한다.
-[jekyll-text-theme repo Issue](https://github.com/kitian616/jekyll-TeXt-theme/issues/381)에서도 위의 라인을 제거하라고 함.
+=> 위의 라인 추가한 후 github push 시 오류가 발생한다.  
+[jekyll-text-theme repo Issue](https://github.com/kitian616/jekyll-TeXt-theme/issues/381)에서도 위의 라인을 제거하라고 함.  
 이유가 무엇인지는 모르겠으나 제거하면 오류가 발생하지 않음
 
 위의 과정 후에 아래 명령어 실행

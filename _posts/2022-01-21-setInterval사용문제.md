@@ -178,5 +178,5 @@ useEffect(() => {
 이 때 delay를 null check 하는 이유는 Interval을 일시중지 할 수 있게 하기 위해서이며 `useInterval`에 null인 delay를 전달할 경우 더 이상 `setInterval` 함수가 실행되지 않게 된다.
 
 `return () => clearInterval(id);` 부분은 `clean-up` 함수로 class component의 경우는 `componentWillUnmount`라는 라이프사이클 메서드를 이용해 구현하며 funtion component의 경우는 `useEffect()`에 전달한 함수의 return 함수로 구현한다.  
-`useEffect()` 내에서 함수를 반환하면 컴포넌트가 unmount 될 때 해당 함수가 실행되어 불필요한 동작을 제거하거나 메모리 누수 문제를 방지할 수 있어 사용한다.
+`useEffect()` 내에서 함수를 반환하면 컴포넌트가 unmount 될 때 해당 함수가 실행되어 불필요한 동작을 제거하거나 메모리 누수 문제를 방지할 수 있어 사용한다.  
 `

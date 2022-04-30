@@ -227,14 +227,14 @@ plugins:
 
 # 2. favicon 변경
 
-로고 이미지를 준비한 뒤 공식 문서에서 소개한 [favicon 생성 사이트](https://realfavicongenerator.net/)에서 favicon을 생성하여 변경해준다!
+로고 이미지를 준비한 뒤 공식 문서에서 소개한 [favicon 생성 사이트](https://realfavicongenerator.net/)에서 favicon을 생성하여 변경해준다!  
 https://tianqi.name/jekyll-TeXt-theme/docs/en/logo-and-favicon#favicon
 
 # 3. custom skin
 
 블로그 색상을 마음대로 커스텀하기 위해서 custom skin을 만들어 준다.
 
-`_sass/skins/_custom.scss` 파일을 만들어서 작성한 뒤,
+`_sass/skins/_custom.scss` 파일을 만들어서 작성한 뒤,  
 `_config.yml` 파일에서 `text_skin` 값을 `custom`으로 변경한다.
 
 custom skin 일부
@@ -252,7 +252,7 @@ $text-color-3: rgb(94, 80, 201);
 
 # 4. CSS 수정
 
-수정하고 싶은 css는 `_sass/custom.scss` 파일에 작성해주었다.
+수정하고 싶은 css는 `_sass/custom.scss` 파일에 작성해주었다.  
 `_sass/skins/_custom.scss`에는 font-size나 color에 대한 스타일만 설정해주고 그 외의 요소들은 `_sass/custom.scss`에 작성해주었다.
 
 변경한 css 일부

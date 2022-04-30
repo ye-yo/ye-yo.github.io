@@ -27,7 +27,7 @@ npm install react-router-dom@6
 
 ### 1) 프로젝트에 라우터 적용 - BrowserRouter로 감싸기
 
-src/index.js 파일에서 react-router-dom의 내장 컴포넌트인 `BrowserRouter`로 `<App/.>`을 감싼다.
+src/index.js 파일에서 react-router-dom의 내장 컴포넌트인 `BrowserRouter`로 `<App/.>`을 감싼다.  
 `BrowserRouter` 컴포넌트는 HTML5의 History API를 사용해 페이지를 새로 불러오지 않고도 주소를 변경하고, 현재 경로에 관련된 정보를 리액트 컴포넌트에서 사용할 수 있게 해준다.
 
 ```js
@@ -48,7 +48,7 @@ ReactDOM.render(
 
 ### 2) 페이지 컴포넌트 생성
 
-src/pages 디렉토리에 각 페이지에서 사용할 컴포넌트를 생성한다.
+src/pages 디렉토리에 각 페이지에서 사용할 컴포넌트를 생성한다.  
 (페이지 컴포넌트는 src/routes 혹은 src에 바로 생성하기도 한다.)
 
 src/pages/Home.js
@@ -88,8 +88,8 @@ export default App;
 
 ### 4) 링크 추가
 
-웹페이지에서 nav를 만들 때 `a`태그 이용해 경로를 변경하는 것처럼 react-router는 `Link` 컴포넌트와 `to` props를 이용해 이를 구현할 수 있다.
-(React에서 `a`태그를 사용하면 페이지 이동 시 페이지를 새로 불러오기 때문에 `a`태그를 사용하지 않는다.)
+웹페이지에서 nav를 만들 때 `a`태그 이용해 경로를 변경하는 것처럼 react-router는 `Link` 컴포넌트와 `to` props를 이용해 이를 구현할 수 있다.  
+(React에서 `a`태그를 사용하면 페이지 이동 시 페이지를 새로 불러오기 때문에 `a`태그를 사용하지 않는다.)  
 예를 들어 메뉴를 만든다면 아래와 같이 작성
 
 ```js
@@ -136,7 +136,7 @@ Link는 페이지를 다시 로드하지 않고 URL을 변경한다.
 
 #### 5-2) 쿼리스트링 - useLocation
 
-쿼리스트링은 별도의 작업은 필요없고, 대신 쿼리스트링을 읽어오기 위해서는 `useLocation`이라는 Hook을 사용해야 한다.
+쿼리스트링은 별도의 작업은 필요없고, 대신 쿼리스트링을 읽어오기 위해서는 `useLocation`이라는 Hook을 사용해야 한다.  
 `/location?page=1&keyword=검색어`
 
 ```js
@@ -200,7 +200,7 @@ const Main = () => {
 export default Articles;
 ```
 
-위와 같이 작성하면 `/main/about`, `/main/articles`에 해당하는 컴포넌트들이 `Outlet` 위치에 렌더링된다.
+위와 같이 작성하면 `/main/about`, `/main/articles`에 해당하는 컴포넌트들이 `Outlet` 위치에 렌더링된다.  
 이것은 공통 레이아웃이 필요할 경우에도 유용하게 사용할 수 있다.
 
 ### 7) 인덱스 라우트 - index props
@@ -291,12 +291,12 @@ const MyPage = () => {
 export default MyPage;
 ```
 
-로그인 상태를 체크하는 `handleLogin()` 함수가 있다고 가정하고 로그인 상태가 아닐 경우에 이동할 페이지 컴포넌트를 `Navigate`를 이용해 지정한다.
+로그인 상태를 체크하는 `handleLogin()` 함수가 있다고 가정하고 로그인 상태가 아닐 경우에 이동할 페이지 컴포넌트를 `Navigate`를 이용해 지정한다.  
 여기서 `replace` props는 history를 남기지 않고 이동하고 싶을 경우 사용한다.
 
 ### 4) 활성 링크 - NavLink
 
-nav 메뉴에서 메뉴를 클릭했을 때 현재 경로에 해당하는 메뉴가 활성화되었다는 스타일을 부여하고 싶다면 `Link`대신 `NavLink`를 사용하면 된다.
+nav 메뉴에서 메뉴를 클릭했을 때 현재 경로에 해당하는 메뉴가 활성화되었다는 스타일을 부여하고 싶다면 `Link`대신 `NavLink`를 사용하면 된다.  
 `NavLink`는 style이나 className 작성시 `isActive`라는 boolean 값을 참조할수 있고 `isActive` 값에 따라 스타일이나 className을 부여하면 된다.
 
 ```js
@@ -317,7 +317,7 @@ return (
 );
 ```
 
-이렇게 되면 isActive 값에 따라 style을 부여하는 코드가 각 NavLink마다 반복되므로
+이렇게 되면 isActive 값에 따라 style을 부여하는 코드가 각 NavLink마다 반복되므로  
 NavLink를 감싼 또 다른 컴포넌트를 만들어 작성하는 것이 좋다.
 
 ```js
@@ -350,8 +350,8 @@ const MenuItem = ({ page }) => {
 
 ### 5) 쿼리 스트링 파싱 - useSearchParams
 
-쿼리 스트링을 가져와 파싱하고 싶은 경우`useSeachParams`를 사용하면 된다.
-`useSearchParams`는 현재 URL에서 쿼리 문자열을 읽고 수정하는데 사용된다. 배열을 반환하며 첫번째 원소는 쿼리파라미터를 처리하는 메서드들이 담긴 객체이며, 두번째 원소는 쿼리파라미터를 업데이트하는 함수이다.
+쿼리 스트링을 가져와 파싱하고 싶은 경우`useSeachParams`를 사용하면 된다.  
+`useSearchParams`는 현재 URL에서 쿼리 문자열을 읽고 수정하는데 사용된다. 배열을 반환하며 첫번째 원소는 쿼리파라미터를 처리하는 메서드들이 담긴 객체이며, 두번째 원소는 쿼리파라미터를 업데이트하는 함수이다.  
 `const [searchParams] = useSearchParams();` 와 같이 선언할 수도 있다.
 
 ```js

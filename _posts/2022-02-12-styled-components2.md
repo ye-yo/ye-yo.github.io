@@ -21,7 +21,7 @@ excerpt: Styled-Components 심화 내용
 
 ### 1) 컴포넌트 타입 변경 - as
 
-`as` props 를 이용해 컴포넌트의 타입을 변경할 수 있다.
+`as` props 를 이용해 컴포넌트의 타입을 변경할 수 있다.  
 (`withComponent`와 동일. withComponent는 지원중단예정)
 
 ```js

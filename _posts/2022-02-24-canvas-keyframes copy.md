@@ -27,7 +27,7 @@ const ctx = canvas.getContext("2d");
 
 #### 색칠된 사각형
 
-색칠 : `fillstyle` > `ctx.fillStyle = 'blue'`
+색칠 : `fillstyle` > `ctx.fillStyle = 'blue'`  
 사각형그리기 : `fillRect` > `ctx.fillRect = (10,10,100,50)`
 
 #### 선으로만 그리기
@@ -39,7 +39,7 @@ ctx.lineWidth = 5;
 ctx.strokeStyle = "black";
 ```
 
-선 사각형 그리기 : `strokeRect` > `ctx.strokeRect(10,10,100,50)`
+선 사각형 그리기 : `strokeRect` > `ctx.strokeRect(10,10,100,50)`  
 사각형으로 지우기(가운데 영역 지울 때 등) : `clearRect`
 
 ```js
@@ -56,8 +56,8 @@ ctx.clearRect(20, 20, 80, 30);
 
 #### 화면상 캔버스의 위치
 
-`ctx.canvas.offsetLeft`
-`ctx.canvas.offsetTop`
+`ctx.canvas.offsetLeft`  
+`ctx.canvas.offsetTop`  
 혹은 `event.offsetX` `event.offsetY`
 
 #### 클릭한 위치에 사각형 그리기

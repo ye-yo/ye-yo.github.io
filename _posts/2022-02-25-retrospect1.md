@@ -28,7 +28,7 @@ tags: [원티드 프리온보딩, 회고록]
 
 ## API 호출 횟수 최적화 방법
 
-호출 횟수를 최적화하는 방법은 찾아보니 **Debounce와 Throttle**이 대표적이었다.
+호출 횟수를 최적화하는 방법은 찾아보니 **Debounce와 Throttle**이 대표적이었다.  
 Debounce와 Throttle은 프로그래밍에서 요청 또는 처리의 빈도를 제한하거나 지연시키고자 할 때 자주 사용하는 방법으로 그 중에서도 Debounce는 일정 시간이 지난 후 이벤트가 한 번만 실행되기 때문에 키보드 입력에 더 적합하다. 그리하여 호출 회수 최적화를 위한 방법으로 Debounce를 사용하게 되었고, Debounce와 Throttle에 대한 자세한 내용은 따로 포스팅해두었다. **[Debounce & Throttle](https://velog.io/@yeyo0x0/Debounce)**
 
 Debounce는 lodash 라이브러리를 사용하여 쉽게 사용할 수도 있지만 Debounce에 대한 이해에 더욱 도움이 되고자 직접 구현해보기로 하였다.

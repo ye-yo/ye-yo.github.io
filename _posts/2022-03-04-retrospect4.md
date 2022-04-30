@@ -97,7 +97,7 @@ export const addItem = async (value) => {
 
 `Failed to build iOS project. We ran "xcodebuild" command but it exited with error code 65. To debug build logs further, consider building your app with Xcode.app, by opening GithubIssueTracker.xcworkspace.`
 
-개발 중에 위와 같은 에러가 발생했다. 정확한 원인은 알 수 없으나 번들 리소스에 중복이 있어서 발생할 수 있다고 한다. 나의 경우는 아이콘 관련 라이브러리에서 오류도 함께 발생했는데 이 라이브러리 설치하면서 번들 리소스에 중복이 생긴 것으로 생각된다.
+개발 중에 위와 같은 에러가 발생했다. 정확한 원인은 알 수 없으나 번들 리소스에 중복이 있어서 발생할 수 있다고 한다. 나의 경우는 아이콘 관련 라이브러리에서 오류도 함께 발생했는데 이 라이브러리 설치하면서 번들 리소스에 중복이 생긴 것으로 생각된다.  
 [[React Native] - BUILD FAILED on run-ios 해결 방법](https://smooth97.medium.com/react-native-build-failed-on-run-ios-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95-f37f2ebc4b65)을 참고하여 4번째 방법으로 해결하였다. 해결 방법은 다음과 같다.
 
 1. xcode로 ios 폴더 연다
