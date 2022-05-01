@@ -194,7 +194,7 @@ bundle exec jekyll serve
 
 # 오류 해결
 
-### ⚠️ could not find expected ':' 에러
+### ❗️could not find expected ':' 에러
 
 > could not find expected ':' while scanning a simple key at line 121 column 5
 
@@ -206,7 +206,7 @@ admin:# GitHub repo owner and collaborators, only thes
 
 auto save되면서 자꾸 공백을 제거하길래 format on save 풀고 저장해주었다.
 
-### ⚠️ webrick 오류
+### ❗️webrick 오류
 
 > cannot load such file -- webrick (LoadError)
 

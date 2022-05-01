@@ -3,6 +3,7 @@ title: Jekyll theme 커스텀하기
 categories: 블로그
 tags: [블로그, Github, Jekyll]
 excerpt: Jekyll 테마 마음대로 커스텀하기~
+date: 2022-04-21 21:39:07 +0900
 ---
 
 > 기본적인 Jekyll 테마도 괜찮지만 색상이나 레이아웃 등을 자유롭게 수정하고자 커스텀을 진행했다.
