@@ -2,6 +2,7 @@
 title: Jekyll liquid warning 해결
 categories: 블로그
 tags: [블로그, Jekyll]
+excerpt: Jekyll 블로그 개발하면서 발생하는 liquid warning 해결하기
 ---
 
 Jekyll 블로그를 수정하면서 `liquid warning` 오류가 발생했다.  
