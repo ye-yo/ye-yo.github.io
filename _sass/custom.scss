@@ -99,8 +99,8 @@
 .toc-aside.toc-to-top{
     i{
         cursor: pointer;
-        width: fit-content;
-        height:fit-content;
+        width: 38px;
+        height:38px;
         border-radius: 50%;
         text-align: center;
         font-size: 26px;
@@ -113,7 +113,7 @@
 
 .page-count{
     position: absolute;
-    top: 100px;
+    top: -2rem;
     font-size: 14px;
 }
 
@@ -143,6 +143,7 @@ code{
     position: relative;
     color:white;
     background-color: unset;
+
 }
 
 .search--dark .search-result__item a::after{
@@ -160,7 +161,106 @@ code{
     color: white;
     background-color: unset;
 }
-.root[data-is-touch="false"] .search--dark .search-result__item a:hover::after{
+.root[data-is-touch="false"] .search--dark .search-result__item a:hover::after, .search-result__item.active > a::after{
     width: 100%;
     transition: width .3s;
+}
+
+/* profile */
+
+.profile-box{
+    display: flex;
+    width: 100%;
+    > img{
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        margin-right: 10px;
+    }
+}
+
+.profile-info{
+    flex: 1;
+    line-height: 1.2;
+    p { margin: 4px 0;}
+    .title{
+        border-radius: 8px;
+        color:$main-color-1;
+        background-color: #f6f3f7b0;
+        font-weight: 600;
+        padding: 2px 4px;
+        width: fit-content;
+        > p{
+            display: inline-block;
+        }
+    }
+    .name{
+        opacity: 0;
+    }
+    .desc {
+        color: #888;
+        font-size: .8em;
+        margin-left: 4px;
+    }
+    .link{
+        a { 
+            vertical-align: middle;
+            padding: 2px; 
+            color: $text-color-1;
+        }
+        .fa-envelope{
+            font-size: 16px;
+        }
+        span{
+            display: inline-block;
+            line-height: 1;
+        }
+    }
+}
+
+@keyframes twinkle{
+    from {
+        transform:rotate(-25deg);
+    }
+    to {
+        transform:rotate(25deg);
+    }
+}
+
+@keyframes blink{
+    from {
+        opacity: .1;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.twinkle{
+    animation: twinkle .4s infinite ease-in-out alternate;
+}
+
+.blink{
+    animation: blink 1s ease-in-out forwards;
+}
+
+.item__description > .article__content::first-line{
+    font-size: 1.2em;
+    color: $text-color-l;
+}
+
+.js-article-content{
+    position: relative;
+}
+
+.layout--articles{
+    margin-top: 4rem;
+}
+
+.article__content h1{
+    margin-top: 4rem;
+}
+
+.article__content h2{
+    margin-top: 2.4rem;
 }

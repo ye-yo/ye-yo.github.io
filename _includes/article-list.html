@@ -1,4 +1,4 @@
-{%- assign _excerpt_truncate = include.excerpt_truncate | default: 250 -%}
+{%- assign _excerpt_truncate = include.excerpt_truncate | default: 180 -%}
 
 {%- assign _excerpt_type = include.excerpt_type -%}
 
@@ -64,7 +64,7 @@
                   {{ _article.excerpt }}
                 {%- else -%}
                   {% if _article.excerpt != _article.content %}
-                    {{ _article.excerpt | strip_html | strip | truncate: _excerpt_truncate }}<span> ☁️ </span> 
+                    {{ _article.excerpt | strip_html | strip | truncate: _excerpt_truncate }}</br>
                   {%- endif -%}
                   {{ _article.content | strip_html | strip | truncate: _excerpt_truncate }}
                 {%- endif -%}
